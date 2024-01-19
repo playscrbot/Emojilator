@@ -37,7 +37,7 @@ Whether you prefer typing or speaking, this app caters to your needs!
   5.Copy: Copy the translated text with the "Copy" button for sharing.
 
   ## Installation
-  Clone the repository: git clone https://github.com/playscrbot/emoji-translator.git
+  Clone the repository: git clone https://github.com/playscrbot/Emojilator.git
 
   #### Install Dependencies 
 
