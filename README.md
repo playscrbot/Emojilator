@@ -4,11 +4,9 @@
 
   ## Overview
 
-```bash
 The Emoji Translator is a fun React-based web application that allows users to translate text into emojis effortlessly. 
 
 Whether you prefer typing or speaking, this app caters to your needs!
-```
 
   ## Key Features
   1.Text Translation: Translate your text into a delightful array of emojis using re-usable components and a predefined emoji map.
