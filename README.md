@@ -26,15 +26,15 @@ Whether you prefer typing or speaking, this app caters to your needs!
   <a href="https://youtube.com/@playscript"><img src="public/cover-card.png" /></a>
   
   
-  1.Type your text: Enter your text in the provided textarea.
+  **Step 1:** Enter your text in the provided textarea.
   
-  2.Suggestions: Get word suggestions for a quick emoji conversion.
+  **Step 2:** Get word suggestions for a quick emoji conversion.
   
-  3.Translate: Click the "Translate" button to convert your text into emojis.
+  **Step 3:** Click the "Translate" button to convert your text into emojis.
   
-  4.Voice Recognition: Use the "Start Voice" button to translate your spoken words into emojis.
+  **Step 4:** Use the "Start Voice" button to translate your spoken words into emojis.
   
-  5.Copy: Copy the translated text with the "Copy" button for sharing.
+  **Step 5:** Copy the translated text with the "Copy" button for sharing.
 
   ## Installation
   Clone the repository: git clone https://github.com/playscrbot/Emojilator.git
