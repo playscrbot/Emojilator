@@ -9,17 +9,17 @@ The Emoji Translator is a fun React-based web application that allows users to t
 Whether you prefer typing or speaking, this app caters to your needs!
 
   ## Key Features
-  1.Text Translation: Translate your text into a delightful array of emojis using re-usable components and a predefined emoji map.
+  1.**Text Translation**: Translate your text into a delightful array of emojis using re-usable components and a predefined emoji map.
   
-  2.Voice Recognition: Activate voice recognition with a simple button click, and watch your spoken words instantly transform into emojis.
+  2.**Voice Recognition**: Activate voice recognition with a simple button click, and watch your spoken words instantly transform into emojis.
   
-  3.Suggestions: Receive word suggestions as you type, making it even easier to express yourself with emojis.
+  3.**Suggestions**: Receive word suggestions as you type, making it even easier to express yourself with emojis.
   
-  4.Copy Translations: Copy your translated text with a single click and paste it anywhere.
+  4.**Copy Translations**: Copy your translated text with a single click and paste it anywhere.
 
-  5.Styling: Make your long texts into a beautiful sticker with our Styling Text Output Maker.
+  5.**Styling**: Make your long texts into a beautiful sticker with our Styling Text Output Maker.
 
-  6.Map: With our map, Explore the traditions and cultures used in each countries of the World.
+  6.**Map**: With our map, Explore the traditions and cultures used in each countries of the World.
   
   ## How to Use
 
