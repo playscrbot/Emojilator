@@ -1,22 +1,37 @@
-  ## The World's #1 Most Advanced Emoji Translator
+  <h1>Emojilator - From Me to You</h1>
+
+  <a href="https://youtube.com/@playscript"><img src="public/banner-card.png" /></a>
 
   ## Overview
 
-The Emoji Translator is a fun React-based web application that allows users to translate text into emojis effortlessly. Whether you prefer typing or speaking, this app caters to your needs!
+```bash
+The Emoji Translator is a fun React-based web application that allows users to translate text into emojis effortlessly. 
 
-  ## Features
-  1.Text Translation: Type or paste your text, and the app translates it into a delightful array of emojis using a predefined emoji map.
+Whether you prefer typing or speaking, this app caters to your needs!
+```
+
+  ## Key Features
+  1.Text Translation: Translate your text into a delightful array of emojis using re-usable components and a predefined emoji map.
   
   2.Voice Recognition: Activate voice recognition with a simple button click, and watch your spoken words instantly transform into emojis.
   
   3.Suggestions: Receive word suggestions as you type, making it even easier to express yourself with emojis.
   
-  4.Copy Translations: Copy your translated text with a click of a button for easy sharing.
+  4.Copy Translations: Copy your translated text with a single click and paste it anywhere.
+
+  5.Styling: Make your long texts into a beautiful sticker with our Styling Text Output Maker.
+
+  6.Map: With our map, Explore the traditions and cultures used in each countries of the World.
   
   ## How to Use
+
+  <a href="https://youtube.com/@playscript"><img src="public/cover-card.png" /></a>
+  
+  
   1.Type your text: Enter your text in the provided textarea.
   
   2.Suggestions: Get word suggestions for a quick emoji conversion.
+  
   3.Translate: Click the "Translate" button to convert your text into emojis.
   
   4.Voice Recognition: Use the "Start Voice" button to translate your spoken words into emojis.
@@ -24,17 +39,33 @@ The Emoji Translator is a fun React-based web application that allows users to t
   5.Copy: Copy the translated text with the "Copy" button for sharing.
 
   ## Installation
-  Clone the repository: git clone https://github.com/your-username/emoji-translator.git
+  Clone the repository: git clone https://github.com/@joyboysk/emoji-translator.git
+
+  #### Install Dependencies 
+
+  ```bash
+  npm install "@nextui-org/react@^2.2.9" \
+    "downloadjs@^1.4.7" \
+    "html-to-image@^1.11.11" \
+    "leaflet@^1.9.4" \
+    "nodemon@^3.0.2" \
+    "react-burger-menu@^3.0.9" \
+    "react-leaflet@^4.2.1" \
+    "react-router-dom@^6.21.1" \
+    "react-spinners@^0.13.8"
+  ```
   
-  Install dependencies: npm install
-  
-  Run the app: npm start
+  #### Run the app 
+
+  ```bash
+  npm run dev
+  ```
   
   ## Contribution
   Contributions are welcome! Feel free to open issues or pull requests to improve the app.
   
   ## License
   This project is licensed under the MIT License - see the LICENSE file for details.
-  
+
   
   Have fun translating your messages into emojis! 😄🚀
