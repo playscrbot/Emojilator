@@ -65,5 +65,7 @@ Whether you prefer typing or speaking, this app caters to your needs!
   ## License
   This project is licensed under the MIT License - see the LICENSE file for details.
 
+
+
   
   Have fun translating your messages into emojis! 😄🚀
