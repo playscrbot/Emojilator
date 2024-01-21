@@ -2,8 +2,8 @@ import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import EmojiTranslator from './EmojiTranslator';
+import ReverseTranslator from './ReverseTranslator';
 import StyledOutput from './StyledOutput';
-import Timeline from './Timeline';
 import Explore from './Explore';
 import VirtualTravel from './VirtualTour';
 import Home from './Home';
@@ -20,6 +20,9 @@ export default function Layout() {
             <Link to="/emoji" className="menu-item">
             Create
             </Link>
+            <Link to="/reverse" className="menu-button">
+            Reverse
+            </Link>
             <Link to="/explore" className="menu-item">
             Explore
             </Link>
@@ -33,6 +36,7 @@ export default function Layout() {
             <Route path="/" element={<Home />} />
             <Route path="/srcdoc" element={<Home />} />
             <Route path="/emoji" element={<EmojiTranslator />} />
+            <Route path="/reverse" element={<ReverseTranslator />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/style" element={<StyledOutput />} />
             <Route path="/tour" element={<VirtualTravel />} />
