@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
 import emojiMap from './EmojiMap';
+import CustomEmojiMapping from './CustomEmojiMapping';
+import ReverseTranslator from './ReverseTranslator';
 
 const EmojiTranslator = () => {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
+  const [customMap, setCustomMap] = useState({});
+  const [allMappings, setAllMappings] = useState({ ...emojiMap });
   const [suggestions, setSuggestions] = useState([]);
   const [translated, setTranslated] = useState('');
   const [isVoiceRecognitionActive, setIsVoiceRecognitionActive] = useState(false);
@@ -26,9 +30,16 @@ const EmojiTranslator = () => {
     }
   }, []);
 
+  // Load custom mappings from localStorage
+  useEffect(() => {
+    const savedCustomMap = JSON.parse(localStorage.getItem('customEmojiMap')) || {};
+    setCustomMap(savedCustomMap);
+    setAllMappings({ ...emojiMap, ...savedCustomMap });
+  }, []);
+
   const translateToEmoji = () => {
     const words = inputText.split(' ');
-    const translatedWords = words.map((word) => emojiMap[word.toLowerCase()] || word);
+    const translatedWords = words.map((word) => allMappings[word.toLowerCase()] || word);
     setOutputText(translatedWords.join(' '));
     setTranslated(translatedWords.join(' '));
   };
@@ -118,6 +129,8 @@ const EmojiTranslator = () => {
          </div>
        )}
     </div>
+    <CustomEmojiMapping customMap={customMap} setCustomMap={setCustomMap} allMappings={allMappings} />
+    <ReverseTranslator allMappings={allMappings} />
    </>
   );
 };
