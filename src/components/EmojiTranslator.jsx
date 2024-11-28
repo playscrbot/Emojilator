@@ -129,8 +129,10 @@ const EmojiTranslator = () => {
          </div>
        )}
     </div>
-    <CustomEmojiMapping customMap={customMap} setCustomMap={setCustomMap} allMappings={allMappings} />
-    <ReverseTranslator allMappings={allMappings} />
+    <section className="custom-emoji-mapper">
+    <CustomEmojiMapping className="custom-emoji-mapping" customMap={customMap} setCustomMap={setCustomMap} allMappings={allMappings} />
+    <ReverseTranslator className="reverse-emoji-translator" allMappings={allMappings} />
+    </section>
    </>
   );
 };
