@@ -31,8 +31,9 @@ h2 {
 }
 
 .custom-emoji-mapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 20px;
   padding: 20px;
 }
