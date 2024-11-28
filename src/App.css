@@ -16,13 +16,17 @@ h2 {
 }
 
 .emoji-translator-container {
-  max-width: 400px;
-  text-align: center;
-  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 255);
-  margin-top: 65px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .custom-emoji-mapping {
@@ -250,21 +254,32 @@ div > strong {
 .sticker-container-wrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   margin-top: 20px;
-  justify-content: center;
+  padding: 10px;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .sticker-container {
-  flex: 1 0 50%;
+  width: 150px;
   height: 150px;
-  background: #f1f1f1;
-  border: 0.5px solid #ccc;
-  border-radius: 2px;
+  display: flex;
   align-items: center;
-  text-align: center;
   justify-content: center;
-  margin-right: 10px auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sticker-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .sticker-text {
