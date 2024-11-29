@@ -43,7 +43,6 @@ const CustomEmojiMapping = ({ customMap, setCustomMap, allMappings }) => {
         <button onClick={handleAddMapping}>Add Mapping</button>
       </div>
       <div className="mapping-list">
-        <h3>Custom Mappings</h3>
         <ul>
           {Object.entries(customMap).map(([word, emoji]) => (
             <li key={word}>
