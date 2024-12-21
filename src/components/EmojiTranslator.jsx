@@ -1,43 +1,14 @@
 import { useState, useEffect } from 'react';
-import axios from "axios";
 import emojiMap from './EmojiMap';
-import CustomEmojiMapping from './CustomEmojiMapping';
-import ReverseTranslator from './ReverseTranslator';
 
 const EmojiTranslator = () => {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
-  const [customMap, setCustomMap] = useState({});
-  const [allMappings, setAllMappings] = useState({ ...emojiMap });
   const [suggestions, setSuggestions] = useState([]);
   const [translated, setTranslated] = useState('');
   const [isVoiceRecognitionActive, setIsVoiceRecognitionActive] = useState(false);
-
-  const [mood, setMood] = useState("");
-  const [emoji, setEmoji] = useState("");
-  const [bgColor, setBgColor] = useState("#f4f4f4");
-  const [moodDescription, setMoodDescription] = useState("");
-  const [loading, setLoading] = useState(false);
   
   const [recognition, setRecognition] = useState(null);
-
-  const moodEmojis = {
-    happy: "😊",
-    sad: "😞",
-    neutral: "😐",
-    excited: "🤩",
-    anxious: "😰",
-    angry: "😡",
-  };
-
-  const moodColors = {
-    happy: "#d4edda",
-    sad: "#f8d7da",
-    neutral: "#fdfd96",
-    excited: "#d1c4e9",
-    anxious: "#ffe6e6",
-    angry: "#ffcccc",
-  };
   
   useEffect(() => {
     if ('webkitSpeechRecognition' in window) {
@@ -55,67 +26,9 @@ const EmojiTranslator = () => {
     }
   }, []);
 
-  // Load custom mappings from localStorage
-  useEffect(() => {
-    const savedCustomMap = JSON.parse(localStorage.getItem('customEmojiMap')) || {};
-    setCustomMap(savedCustomMap);
-    setAllMappings({ ...emojiMap, ...savedCustomMap });
-  }, []);
-
-  const analyzeMood = async () => {
-    if (!inputText) {
-      setMood("Please enter some text to analyze.");
-      setEmoji("");
-      setBgColor("#f4f4f4");
-      return;
-    }
-
-    setLoading(true);
-    try {
-      const response = await axios.post(
-        "https://api.openai.com/v1/chat/completions",
-        {
-          model: "gpt-3.5-turbo",
-          messages: [
-            {
-              role: "system",
-              content:
-                "You are a mood analysis assistant. Given a text input, identify the primary mood and explain why it reflects that mood. Use nuanced moods like 'excited' or 'anxious' where applicable.",
-            },
-            { role: "user", content: inputText },
-          ],
-        },
-        {
-          headers: {
-            "Authorization": `Bearer YOUR_OPENAI_API_KEY`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      const analysis = response.data.choices[0].message.content;
-
-      // Extract mood and description from GPT output
-      const detectedMood = analysis.match(/Mood: (\w+)/)[1].toLowerCase();
-      const description = analysis.split("Description:")[1]?.trim();
-
-      setMood(`Mood: ${detectedMood}`);
-      setMoodDescription(description || "No description available.");
-      setEmoji(moodEmojis[detectedMood] || "🤔");
-      setBgColor(moodColors[detectedMood] || "#f4f4f4");
-    } catch (error) {
-      console.error("Error analyzing mood:", error);
-      setMood("Error: Could not detect mood.");
-      setEmoji("❌");
-      setBgColor("#f4f4f4");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const translateToEmoji = () => {
     const words = inputText.split(' ');
-    const translatedWords = words.map((word) => allMappings[word.toLowerCase()] || word);
+    const translatedWords = words.map((word) => emojiMap[word.toLowerCase()] || word);
     setOutputText(translatedWords.join(' '));
     setTranslated(translatedWords.join(' '));
   };
@@ -150,18 +63,43 @@ const EmojiTranslator = () => {
   };
 
   const stickerVariations = [
-    { color: '#FFD700', fontFamily: 'cursive', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' },
-    { color: '#87CEEB', fontFamily: 'Arial, sans-serif', fontStyle: 'italic', textDecoration: 'underline' },
-    { color: '#FF69B4', fontSize: '28px', fontFamily: 'fantasy' },
-    { color: '#FFA07A', fontFamily: 'Georgia, serif', letterSpacing: '2px', lineHeight: '1.5' },
-    { color: '#90EE90', fontFamily: 'monospace' },
+    { color: '#FFD700', fontFamily: 'cursive', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }
   ];
 
-  const generateStickerContainer = (outputText, styles) => (
-    <div className="sticker-container" style={styles}>
-      <p className="sticker-text">{outputText}</p>
-    </div>
-  );
+  const stickerVariations2 = [
+    { color: '#FF69B4', fontSize: '28px', fontFamily: 'fantasy' }
+  ];
+
+  const stickerVariations3 = [
+    { color: '#87CEEB', fontFamily: 'Arial, sans-serif', fontStyle: 'italic', textDecoration: 'underline' }
+  ];
+
+  const generateStickerAsPng = (text, styles) => {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+  
+    // Set canvas dimensions
+    canvas.width = 150; // Match sticker dimensions
+    canvas.height = 150;
+  
+    // Apply background color
+    ctx.fillStyle = styles.backgroundColor || "#fff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+    // Apply text styles
+    ctx.font = `${styles.fontWeight || "normal"} ${styles.fontSize || "25px"} ${
+      styles.fontFamily || "sans-serif"
+    }`;
+    ctx.fillStyle = styles.color || "#000";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+  
+    // Draw the text
+    ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+  
+    // Convert canvas to PNG
+    return canvas.toDataURL("image/png");
+  };
         
   return (
    <>
@@ -180,11 +118,23 @@ const EmojiTranslator = () => {
           ))}
         </div>
       )}
-      <button onClick={translateToEmoji}>Translate</button>
-      <span style={{ margin: '0 15px' }}></span>
-      <button onClick={handleToggleVoiceRecognition}>
-        {isVoiceRecognitionActive ? 'Stop Voice' : 'Start Voice'}
-      </button>
+      <div className="button-container">
+        <button className="translate-button" onClick={translateToEmoji}>
+          Translate
+        </button>
+        <span style={{ margin: '0 15px' }}></span>
+        <button className="voice-button" onClick={handleToggleVoiceRecognition}>
+        {isVoiceRecognitionActive ? (
+          <>
+          <span>Stop</span> <span>Voice</span>
+          </>
+          ) : (
+          <>
+          <span>Start</span> <span>Voice</span>
+          </>
+        )}
+        </button>
+      </div>
       <p>
         <strong style={{ color: 'green' }}>Suggestion:</strong>
         {' '}Use the "Start Voice" button if you don't want to type your query 😄
@@ -196,45 +146,22 @@ const EmojiTranslator = () => {
     </div>
     <div className="sticker-container-wrapper">
        {translated && (
-         <div>
+         <>
            {stickerVariations.map((styles, index) => (
-             <div key={index} className="sticker-container" style={styles}>
-               {generateStickerContainer(translated, styles, index)}
-             </div>
+            <img key={index} src={generateStickerAsPng(translated, styles)} className="sticker-container" style={styles} alt={`Sticker ${index + 1}`}>
+            </img>
            ))}
-         </div>
+           {stickerVariations2.map((styles, index) => (
+            <img key={index} src={generateStickerAsPng(translated, styles, index)} className="sticker-container" style={styles} alt={`Sticker ${index + 1}`}>
+            </img>
+           ))}
+           {stickerVariations3.map((styles, index) => (
+            <img key={index} src={generateStickerAsPng(translated, styles, index)} className="sticker-container" style={styles} alt={`Sticker ${index + 1}`}>
+            </img>
+           ))}
+         </>
        )}
     </div>
-    <section className="custom-emoji-mapper">
-    <CustomEmojiMapping className="custom-emoji-mapping" customMap={customMap} setCustomMap={setCustomMap} allMappings={allMappings} />
-    <ReverseTranslator className="reverse-emoji-translator" allMappings={allMappings} />
-    <div className="mood-detector">
-      <h1>Mood Detector</h1>
-      <textarea
-        value={inputText}
-        onChange={(e) => setInputText(e.target.value)}
-        placeholder="Type your text here..."
-      />
-      <button onClick={analyzeMood} disabled={loading}>
-        {loading ? "Analyzing..." : "Detect Mood"}
-      </button>
-      {mood && (
-        <div
-          className="mood-result"
-          style={{
-            backgroundColor: bgColor,
-            borderRadius: "10px",
-            padding: "15px",
-          }}
-        >
-          <p>
-            <strong>{emoji}</strong> {mood}
-          </p>
-          {moodDescription && <p><em>{moodDescription}</em></p>}
-        </div>
-      )}
-    </div>
-    </section>
    </>
   );
 };

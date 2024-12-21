@@ -32,13 +32,13 @@ export default function Home() {
              <p className="superhero-p" data-aos="fade-up" data-aos-delay="200">Whether it is to celebrate parties and special occasions or to create a realtionship with the person you're interested in, We have an All-in-One solution for you.</p>
              <div className="superhero-section">
                <div data-aos="fade-up" data-aos-delay="400">
-                 <Link to="/emoji">
-                   <a className="superhero-a bg-purple-600 hover\:bg-purple-700:hover w-full mb-4 sm:w-auto">Start My Story</a>
+                 <Link to="/emoji" className="superhero-a bg-purple-600 hover\:bg-purple-700:hover w-full mb-4 sm:w-auto">
+                   Start My Story
                  </Link> 
                </div>
                <div data-aos="fade-up" data-aos-delay="600">
-                 <Link to="/explore">
-                   <a className="superhero-b bg-gray-700 hover\:bg-gray-800:hover">Explore Map</a>
+                 <Link to="/explore" className="superhero-b bg-gray-700 hover\:bg-gray-800:hover">
+                   Explore Map
                  </Link>
                </div>
              </div>
@@ -95,13 +95,13 @@ export default function Home() {
     </section>
     <h1>History of Emojis</h1>
     <Timeline events={events} />
-    <div class="tour-card text-center">
-      <div class="tour-card-header">
+    <div className="tour-card text-center">
+      <div className="tour-card-header">
          Featured
       </div>
-      <div class="tour-card-body">
-         <h5 class="tour-card-title">Virtual Tour</h5>
-         <p class="tour-card-text">Learn, Enjoy and Embrace the traditions of the world that we are all living in ✳️</p>
+      <div className="tour-card-body">
+         <h5 className="tour-card-title">Virtual Tour</h5>
+         <p className="tour-card-text">Learn, Enjoy and Embrace the traditions of the world that we are all living in ✳️</p>
         <Link to="/tour">
           <a className="tour-btn btn-primary">Start Exploring</a>
         </Link> 

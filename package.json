@@ -4,7 +4,7 @@
   "type": "module",
   "description": "React TypeScript on Replit, using Vite bundler",
   "scripts": {
-    "dev": "nodemon --watch 'src/**/*.jsx' --exec 'vite'",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -24,6 +24,7 @@
     "@nextui-org/react": "^2.2.9",
     "axios": "^1.7.8",
     "downloadjs": "^1.4.7",
+    "gif.js": "^0.2.0",
     "html-to-image": "^1.11.11",
     "leaflet": "^1.9.4",
     "nodemon": "^3.1.7",
