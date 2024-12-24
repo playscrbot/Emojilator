@@ -6,6 +6,7 @@ import StyledOutput from './StyledOutput';
 import Explore from './Explore';
 import VirtualTravel from './VirtualTour';
 import Home from './Home';
+import EmojiSentiment from './EmojiSentiment';
 
 export default function Layout() {
   return (
@@ -35,6 +36,7 @@ export default function Layout() {
             <Route path="/explore" element={<Explore />} />
             <Route path="/style" element={<StyledOutput />} />
             <Route path="/tour" element={<VirtualTravel />} />
+            <Route path="/analyze" element={<EmojiSentiment />} />
           </Routes>
       </Router>
     </div>

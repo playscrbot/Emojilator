@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "type": "module",
   "description": "React TypeScript on Replit, using Vite bundler",
+  "main": "vite.config.js",
   "scripts": {
-    "dev": "vite",
+    "start": "npm run dev",
+    "dev": "concurrently \"vite\" \"python backend/app.py\"",
     "build": "vite build",
     "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
@@ -23,14 +25,21 @@
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
     "axios": "^1.7.8",
+    "chart.js": "^4.4.7",
+    "concurrently": "^9.1.0",
     "downloadjs": "^1.4.7",
+    "emoji-regex": "^10.4.0",
+    "flask": "^0.2.10",
     "gif.js": "^0.2.0",
     "html-to-image": "^1.11.11",
     "leaflet": "^1.9.4",
     "nodemon": "^3.1.7",
     "react-burger-menu": "^3.0.9",
+    "react-chartjs-2": "^5.2.0",
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.21.1",
-    "react-spinners": "^0.13.8"
+    "react-spinners": "^0.13.8",
+    "sentiment": "^5.0.2",
+    "socket.io-client": "^4.8.1"
   }
 }

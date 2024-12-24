@@ -37,8 +37,8 @@ export default function Home() {
                  </Link> 
                </div>
                <div data-aos="fade-up" data-aos-delay="600">
-                 <Link to="/explore" className="superhero-b bg-gray-700 hover\:bg-gray-800:hover">
-                   Explore Map
+                 <Link to="/analyze" className="superhero-b bg-gray-700 hover\:bg-gray-800:hover">
+                   Analyze Instead
                  </Link>
                </div>
              </div>
@@ -97,11 +97,11 @@ export default function Home() {
     <Timeline events={events} />
     <div className="tour-card text-center">
       <div className="tour-card-header">
-         Featured
+        Featured
       </div>
       <div className="tour-card-body">
-         <h5 className="tour-card-title">Virtual Tour</h5>
-         <p className="tour-card-text">Learn, Enjoy and Embrace the traditions of the world that we are all living in ✳️</p>
+        <h5 className="tour-card-title">Virtual Tour</h5>
+        <p className="tour-card-text">Learn, Enjoy and Embrace the traditions of the world that we are all living in ✳️</p>
         <Link to="/tour">
           <a className="tour-btn btn-primary">Start Exploring</a>
         </Link> 

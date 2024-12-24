@@ -17,6 +17,75 @@ L.Icon.Default.mergeOptions({
   shadowUrl: shadowUrl,
 });
 
+// Classes used by Leaflet to position controls
+const POSITION_CLASSES = {
+  bottomleft: 'leaflet-bottom leaflet-left',
+  bottomright: 'leaflet-bottom leaflet-right',
+  topleft: 'leaflet-top leaflet-left',
+  topright: 'leaflet-top leaflet-right',
+}
+
+const BOUNDS_STYLE = { weight: 1 }
+
+function MinimapBounds({ parentMap, zoom }) {
+  const minimap = useMap()
+
+  // Clicking a point on the minimap sets the parent's map center
+  const onClick = useCallback(
+    (e) => {
+      parentMap.setView(e.latlng, parentMap.getZoom())
+    },
+    [parentMap],
+  )
+  useMapEvent('click', onClick)
+
+  // Keep track of bounds in state to trigger renders
+  const [bounds, setBounds] = useState(parentMap.getBounds())
+  const onChange = useCallback(() => {
+    setBounds(parentMap.getBounds())
+    // Update the minimap's view to match the parent map's center and zoom
+    minimap.setView(parentMap.getCenter(), zoom)
+  }, [minimap, parentMap, zoom])
+
+  // Listen to events on the parent map
+  const handlers = useMemo(() => ({ move: onChange, zoom: onChange }), [])
+  useEventHandlers({ instance: parentMap }, handlers)
+
+  return <Rectangle bounds={bounds} pathOptions={BOUNDS_STYLE} />
+}
+
+function MinimapControl({ position, zoom }) {
+  const parentMap = useMap()
+  const mapZoom = zoom || 0
+
+  // Memoize the minimap so it's not affected by position changes
+  const minimap = useMemo(
+    () => (
+      <MapContainer
+        style={{ height: 80, width: 80 }}
+        center={parentMap.getCenter()}
+        zoom={mapZoom}
+        dragging={false}
+        doubleClickZoom={false}
+        scrollWheelZoom={false}
+        attributionControl={false}
+        zoomControl={false}>
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <MinimapBounds parentMap={parentMap} zoom={mapZoom} />
+      </MapContainer>
+    ),
+    [],
+  )
+
+  const positionClass =
+    (position && POSITION_CLASSES[position]) || POSITION_CLASSES.topright
+  return (
+    <div className={positionClass}>
+      <div className="leaflet-control leaflet-bar">{minimap}</div>
+    </div>
+  )
+}
+
 const countriesData = [
   { name: 'Germany', lat: 51.1657, lng: 10.4515, emoji: '🇩🇪', culture: '🍺🕰️🎭' },
   { name: 'Brazil', lat: -14.2350, lng: -51.9253, emoji: '🇧🇷', culture: '🎉🏞️🎶' },
@@ -214,6 +283,732 @@ const countriesData = [
   { name: 'Somalia', lat: 5.1521, lng: 46.1996, emoji: '🇸🇴', culture: '🏞️🌍🎶' }
 ];
 
+const separateData = [
+  {
+    name: "Germany",
+    emoji: "🇩🇪",
+    culture: "German culture",
+    lat: 51.1657,
+    lon: 10.4515,
+    touristSpots: [
+      {
+        name: "Brandenburg Gate",
+        description: "An iconic symbol of Berlin and German unity.",
+        coordinates: [52.516275, 13.377704],
+      },
+      {
+        name: "Neuschwanstein Castle",
+        description: "A fairy-tale castle in Bavaria.",
+        coordinates: [47.5575, 10.7498],
+      },
+    ],
+  },
+  {
+    name: "France",
+    emoji: "🇫🇷",
+    culture: "French culture",
+    lat: 46.6034,
+    lon: 1.8883,
+    touristSpots: [
+      {
+        name: "Eiffel Tower",
+        description: "The world-famous tower in Paris.",
+        coordinates: [48.858844, 2.294481],
+      },
+      {
+        name: "Louvre Museum",
+        description: "One of the world's largest and most famous museums.",
+        coordinates: [48.8606, 2.3376],
+      },
+    ],
+  },
+  {
+    name: "Italy",
+    emoji: "🇮🇹",
+    culture: "Italian culture",
+    lat: 41.9028,
+    lon: 12.4964,
+    touristSpots: [
+      {
+        name: "Colosseum",
+        description: "An ancient amphitheater in the heart of Rome.",
+        coordinates: [41.8902, 12.4922],
+      },
+      {
+        name: "Leaning Tower of Pisa",
+        description: "A famous tilted tower in Pisa.",
+        coordinates: [43.7167, 10.4000],
+      },
+    ],
+  },
+  {
+    name: "Japan",
+    emoji: "🇯🇵",
+    culture: "Japanese culture",
+    lat: 36.2048,
+    lon: 138.2529,
+    touristSpots: [
+      {
+        name: "Mount Fuji",
+        description: "An iconic active volcano and a cultural symbol of Japan.",
+        coordinates: [35.3606, 138.7274],
+      },
+      {
+        name: "Kyoto Temples",
+        description: "A collection of historic temples in Kyoto.",
+        coordinates: [35.0116, 135.7681],
+      },
+    ],
+  },
+  {
+    name: "United States",
+    emoji: "🇺🇸",
+    culture: "American culture",
+    lat: 37.0902,
+    lon: -95.7129,
+    touristSpots: [
+      {
+        name: "Statue of Liberty",
+        description: "A symbol of freedom and democracy.",
+        coordinates: [40.6892, -74.0445],
+      },
+      {
+        name: "Grand Canyon",
+        description: "A massive canyon carved by the Colorado River.",
+        coordinates: [36.1069, -112.1129],
+      },
+    ],
+  },
+  {
+    name: "India",
+    emoji: "🇮🇳",
+    culture: "Indian culture",
+    lat: 20.5937,
+    lon: 78.9629,
+    touristSpots: [
+      {
+        name: "Taj Mahal",
+        description: "A white marble mausoleum and a UNESCO World Heritage Site.",
+        coordinates: [27.1751, 78.0421],
+      },
+      {
+        name: "Qutub Minar",
+        description: "A towering minaret in Delhi.",
+        coordinates: [28.5245, 77.1855],
+      },
+    ],
+  },
+  {
+    name: "Brazil",
+    emoji: "🇧🇷",
+    culture: "Brazilian culture",
+    lat: -14.2350,
+    lon: -51.9253,
+    touristSpots: [
+      {
+        name: "Christ the Redeemer",
+        description: "A famous statue of Jesus Christ in Rio de Janeiro.",
+        coordinates: [-22.9519, -43.2105],
+      },
+      {
+        name: "Iguazu Falls",
+        description: "A stunning set of waterfalls on the border between Brazil and Argentina.",
+        coordinates: [-25.6953, -54.4367],
+      },
+    ],
+  },
+  {
+    name: "Australia",
+    emoji: "🇦🇺",
+    culture: "Australian culture",
+    lat: -25.2744,
+    lon: 133.7751,
+    touristSpots: [
+      {
+        name: "Sydney Opera House",
+        description: "An iconic performing arts venue in Sydney.",
+        coordinates: [-33.8568, 151.2153],
+      },
+      {
+        name: "Great Barrier Reef",
+        description: "The world's largest coral reef system.",
+        coordinates: [-18.2871, 147.6992],
+      },
+    ],
+  },
+  {
+    name: "Spain",
+    emoji: "🇪🇸",
+    culture: "Spanish culture",
+    lat: 40.4637,
+    lon: -3.7492,
+    touristSpots: [
+      {
+        name: "Sagrada Familia",
+        description: "A large basilica designed by Antoni Gaudí in Barcelona.",
+        coordinates: [41.4036, 2.1744],
+      },
+      {
+        name: "Alhambra",
+        description: "A palace and fortress complex in Granada.",
+        coordinates: [37.7970, -3.8233],
+      },
+    ],
+  },
+  {
+    name: "United Kingdom",
+    emoji: "🇬🇧",
+    culture: "British culture",
+    lat: 51.5074,
+    lon: -0.1278,
+    touristSpots: [
+      {
+        name: "Big Ben",
+        description: "A famous clock tower in London.",
+        coordinates: [51.5007, -0.1246],
+      },
+      {
+        name: "Stonehenge",
+        description: "A prehistoric monument in Wiltshire.",
+        coordinates: [51.1789, -1.8262],
+      },
+    ],
+  },
+  {
+    name: "China",
+    emoji: "🇨🇳",
+    culture: "Chinese culture",
+    lat: 35.8617,
+    lon: 104.1954,
+    touristSpots: [
+      {
+        name: "Great Wall of China",
+        description: "An ancient series of walls and fortifications.",
+        coordinates: [40.4319, 116.5704],
+      },
+      {
+        name: "Forbidden City",
+        description: "A large palace complex in Beijing.",
+        coordinates: [39.9163, 116.3972],
+      },
+    ],
+  },
+  {
+    name: "Canada",
+    emoji: "🇨🇦",
+    culture: "Canadian culture",
+    lat: 56.1304,
+    lon: -106.3468,
+    touristSpots: [
+      {
+        name: "Niagara Falls",
+        description: "A famous set of waterfalls on the border between Canada and the U.S.",
+        coordinates: [43.0799, -79.0742],
+      },
+      {
+        name: "Banff National Park",
+        description: "A national park known for its stunning mountain scenery.",
+        coordinates: [51.4968, -115.9281],
+      },
+    ],
+  },
+  {
+    name: "Mexico",
+    emoji: "🇲🇽",
+    culture: "Mexican culture",
+    lat: 23.6345,
+    lon: -102.5528,
+    touristSpots: [
+      {
+        name: "Chichen Itza",
+        description: "An ancient Mayan city in Yucatán.",
+        coordinates: [20.6829, -88.5686],
+      },
+      {
+        name: "Teotihuacan",
+        description: "An ancient Mesoamerican city in central Mexico.",
+        coordinates: [19.6925, -98.8431],
+      },
+    ],
+  },
+  {
+    name: "South Africa",
+    emoji: "🇿🇦",
+    culture: "South African culture",
+    lat: -30.5595,
+    lon: 22.9375,
+    touristSpots: [
+      {
+        name: "Table Mountain",
+        description: "A flat-topped mountain in Cape Town.",
+        coordinates: [-33.9626, 18.4098],
+      },
+      {
+        name: "Kruger National Park",
+        description: "A large game reserve in northeastern South Africa.",
+        coordinates: [-24.0397, 31.4972],
+      },
+    ],
+  },
+  {
+    name: "Argentina",
+    emoji: "🇦🇷",
+    culture: "Argentine culture",
+    lat: -38.4161,
+    lon: -63.6167,
+    touristSpots: [
+      {
+        name: "Iguazu Falls",
+        description: "A stunning set of waterfalls on the border with Brazil.",
+        coordinates: [-25.6953, -54.4367],
+      },
+      {
+        name: "Perito Moreno Glacier",
+        description: "A massive glacier in Patagonia.",
+        coordinates: [-50.4967, -73.0514],
+      },
+    ],
+  },
+  {
+    name: "Russia",
+    emoji: "🇷🇺",
+    culture: "Russian culture",
+    lat: 55.7558,
+    lon: 37.6173,
+    touristSpots: [
+      {
+        name: "Red Square",
+        description: "A historic city square in Moscow.",
+        coordinates: [55.7539, 37.6208],
+      },
+      {
+        name: "Lake Baikal",
+        description: "The world's deepest and oldest freshwater lake.",
+        coordinates: [53.5587, 108.1650],
+      },
+    ],
+  },
+  {
+    name: "Egypt",
+    emoji: "🇪🇬",
+    culture: "Egyptian culture",
+    lat: 26.8206,
+    lon: 30.8025,
+    touristSpots: [
+      {
+        name: "Pyramids of Giza",
+        description: "The famous pyramids located just outside Cairo.",
+        coordinates: [29.9792, 31.1342],
+      },
+      {
+        name: "Valley of the Kings",
+        description: "A burial site for pharaohs and nobles in Luxor.",
+        coordinates: [25.7400, 32.6019],
+      },
+    ],
+  },
+  {
+    name: "Thailand",
+    emoji: "🇹🇭",
+    culture: "Thai culture",
+    lat: 15.8700,
+    lon: 100.9925,
+    touristSpots: [
+      {
+        name: "Grand Palace",
+        description: "A complex of buildings in Bangkok.",
+        coordinates: [13.7500, 100.4913],
+      },
+      {
+        name: "Phi Phi Islands",
+        description: "A group of islands in the Andaman Sea.",
+        coordinates: [7.7417, 98.7711],
+      },
+    ],
+  },
+  {
+    name: "New Zealand",
+    emoji: "🇳🇿",
+    culture: "New Zealand culture",
+    lat: -40.9006,
+    lon: 174.8860,
+    touristSpots: [
+      {
+        name: "Milford Sound",
+        description: "A fjord in the southwest of New Zealand's South Island.",
+        coordinates: [-44.6937, 167.9270],
+      },
+      {
+        name: "Hobbiton",
+        description: "The movie set for the fictional village from The Lord of the Rings.",
+        coordinates: [-37.8919, 175.4351],
+      },
+    ],
+  },
+  {
+    name: "Turkey",
+    emoji: "🇹🇷",
+    culture: "Turkish culture",
+    lat: 38.9637,
+    lon: 35.2433,
+    touristSpots: [
+      {
+        name: "Hagia Sophia",
+        description: "A former Greek Orthodox Christian basilica in Istanbul.",
+        coordinates: [41.0086, 28.9802],
+      },
+      {
+        name: "Cappadocia",
+        description: "A historical region famous for its fairy chimneys and cave dwellings.",
+        coordinates: [38.6406, 34.8289],
+      },
+    ],
+  },
+  {
+    name: "South Korea",
+    emoji: "🇰🇷",
+    culture: "Korean culture",
+    lat: 35.9078,
+    lon: 127.7669,
+    touristSpots: [
+      {
+        name: "Gyeongbokgung Palace",
+        description: "A historic palace in Seoul, the largest of the Five Grand Palaces.",
+        coordinates: [37.5789, 126.9770],
+      },
+      {
+        name: "Jeju Island",
+        description: "A volcanic island famous for its natural beauty.",
+        coordinates: [33.4996, 126.5312],
+      },
+    ],
+  },
+  {
+    name: "Chile",
+    emoji: "🇨🇱",
+    culture: "Chilean culture",
+    lat: -35.6751,
+    lon: -71.5430,
+    touristSpots: [
+      {
+        name: "Easter Island",
+        description: "A remote volcanic island known for its stone statues called moai.",
+        coordinates: [-27.1127, -109.3497],
+      },
+      {
+        name: "Atacama Desert",
+        description: "The driest desert in the world, located in northern Chile.",
+        coordinates: [-24.4573, -68.0472],
+      },
+    ],
+  },
+  {
+    name: "Peru",
+    emoji: "🇵🇪",
+    culture: "Peruvian culture",
+    lat: -9.19,
+    lon: -75.0152,
+    touristSpots: [
+      {
+        name: "Machu Picchu",
+        description: "An ancient Inca city located in the Andes Mountains.",
+        coordinates: [-13.1631, -72.5450],
+      },
+      {
+        name: "Nazca Lines",
+        description: "A series of large ancient geoglyphs located in the Nazca Desert.",
+        coordinates: [-14.7349, -75.1300],
+      },
+    ],
+  },
+  {
+    name: "Greece",
+    emoji: "🇬🇷",
+    culture: "Greek culture",
+    lat: 39.0742,
+    lon: 21.8243,
+    touristSpots: [
+      {
+        name: "Acropolis of Athens",
+        description: "An ancient citadel in Athens, home to the Parthenon.",
+        coordinates: [37.9715, 23.7257],
+      },
+      {
+        name: "Santorini",
+        description: "A picturesque island known for its whitewashed buildings and sunsets.",
+        coordinates: [36.3932, 25.4615],
+      },
+    ],
+  },
+  {
+    name: "Finland",
+    emoji: "🇫🇮",
+    culture: "Finnish culture",
+    lat: 61.9241,
+    lon: 25.7482,
+    touristSpots: [
+      {
+        name: "Northern Lights",
+        description: "A natural light display in the Earth's sky, visible in the northern latitudes.",
+        coordinates: [68.3582, 27.7317],
+      },
+      {
+        name: "Suomenlinna",
+        description: "A sea fortress built on six islands, a UNESCO World Heritage Site.",
+        coordinates: [60.1453, 24.9902],
+      },
+    ],
+  },
+  {
+    name: "Switzerland",
+    emoji: "🇨🇭",
+    culture: "Swiss culture",
+    lat: 46.8182,
+    lon: 8.2275,
+    touristSpots: [
+      {
+        name: "Matterhorn",
+        description: "A famous pyramid-shaped peak in the Swiss Alps.",
+        coordinates: [45.9763, 7.6586],
+      },
+      {
+        name: "Lake Geneva",
+        description: "A large lake bordered by Switzerland and France, known for its scenic views.",
+        coordinates: [46.2044, 6.1432],
+      },
+    ],
+  },
+  {
+    name: "Norway",
+    emoji: "🇳🇴",
+    culture: "Norwegian culture",
+    lat: 60.4720,
+    lon: 8.4689,
+    touristSpots: [
+      {
+        name: "Geirangerfjord",
+        description: "A UNESCO World Heritage site, known for its stunning fjords.",
+        coordinates: [62.1042, 7.2069],
+      },
+      {
+        name: "Lofoten Islands",
+        description: "A group of islands known for dramatic scenery and fishing villages.",
+        coordinates: [68.1890, 13.2750],
+      },
+    ],
+  },
+  {
+    name: "Vietnam",
+    emoji: "🇻🇳",
+    culture: "Vietnamese culture",
+    lat: 14.0583,
+    lon: 108.2772,
+    touristSpots: [
+      {
+        name: "Halong Bay",
+        description: "A UNESCO World Heritage site known for its emerald waters and limestone islands.",
+        coordinates: [20.9101, 107.1839],
+      },
+      {
+        name: "Phong Nha-Kẻ Bàng National Park",
+        description: "Famous for its caves, including the world's largest cave, Son Doong.",
+        coordinates: [17.4600, 106.3000],
+      },
+    ],
+  },
+  {
+    name: "Kenya",
+    emoji: "🇰🇪",
+    culture: "Kenyan culture",
+    lat: -1.2921,
+    lon: 36.8219,
+    touristSpots: [
+      {
+        name: "Maasai Mara National Reserve",
+        description: "Famous for its wildlife, especially the Great Migration of wildebeests.",
+        coordinates: [-1.4061, 35.0158],
+      },
+      {
+        name: "Mount Kenya",
+        description: "The second-highest mountain in Africa, popular for trekking.",
+        coordinates: [-0.1532, 37.3061],
+      },
+    ],
+  },
+  {
+    name: "Indonesia",
+    emoji: "🇮🇩",
+    culture: "Indonesian culture",
+    lat: -0.7893,
+    lon: 113.9213,
+    touristSpots: [
+      {
+        name: "Bali",
+        description: "A famous tropical island known for its beaches, temples, and resorts.",
+        coordinates: [-8.3405, 115.0919],
+      },
+      {
+        name: "Borobudur Temple",
+        description: "A UNESCO World Heritage site, known as the largest Buddhist temple in the world.",
+        coordinates: [-7.6079, 110.2037],
+      },
+    ],
+  },
+  {
+    name: "Portugal",
+    emoji: "🇵🇹",
+    culture: "Portuguese culture",
+    lat: 39.3999,
+    lon: -8.2245,
+    touristSpots: [
+      {
+        name: "Belém Tower",
+        description: "A historic fortified tower located in Lisbon.",
+        coordinates: [38.6914, -9.2159],
+      },
+      {
+        name: "Algarve Coast",
+        description: "Famous for its stunning cliffs, golden beaches, and quaint fishing villages.",
+        coordinates: [37.0902, -8.2482],
+      },
+    ],
+  },
+  {
+    name: "Poland",
+    emoji: "🇵🇱",
+    culture: "Polish culture",
+    lat: 51.9194,
+    lon: 19.1451,
+    touristSpots: [
+      {
+        name: "Wawel Castle",
+        description: "A historic castle located in Kraków, Poland, known for its stunning architecture.",
+        coordinates: [50.0543, 19.9367],
+      },
+      {
+        name: "Auschwitz-Birkenau",
+        description: "A historical site of the former Nazi concentration and extermination camp.",
+        coordinates: [50.0359, 19.1783],
+      },
+    ],
+  },
+  {
+    name: "Israel",
+    emoji: "🇮🇱",
+    culture: "Israeli culture",
+    lat: 31.0461,
+    lon: 34.8516,
+    touristSpots: [
+      {
+        name: "Western Wall",
+        description: "A significant religious site in Jerusalem, part of the ancient Second Temple.",
+        coordinates: [31.7767, 35.2345],
+      },
+      {
+        name: "Dead Sea",
+        description: "The lowest point on Earth, famous for its mineral-rich waters.",
+        coordinates: [31.5890, 35.4732],
+      },
+    ],
+  },
+  {
+    name: "Colombia",
+    emoji: "🇨🇴",
+    culture: "Colombian culture",
+    lat: 4.5709,
+    lon: -74.2973,
+    touristSpots: [
+      {
+        name: "Cartagena",
+        description: "A historic coastal city with colonial architecture and beautiful beaches.",
+        coordinates: [10.3910, -75.4794],
+      },
+      {
+        name: "Cocora Valley",
+        description: "Known for its towering wax palm trees, Colombia's national tree.",
+        coordinates: [4.5567, -75.6333],
+      },
+    ],
+  },
+  {
+    name: "Sweden",
+    emoji: "🇸🇪",
+    culture: "Swedish culture",
+    lat: 60.1282,
+    lon: 18.6435,
+    touristSpots: [
+      {
+        name: "Vasa Museum",
+        description: "A maritime museum in Stockholm, home to the 17th-century ship Vasa.",
+        coordinates: [59.3275, 18.0972],
+      },
+      {
+        name: "Abisko National Park",
+        description: "A national park known for its Northern Lights and Arctic landscapes.",
+        coordinates: [68.3533, 18.7833],
+      },
+    ],
+  },
+  {
+    name: "Malaysia",
+    emoji: "🇲🇾",
+    culture: "Malaysian culture",
+    lat: 4.2105,
+    lon: 101.9758,
+    touristSpots: [
+      {
+        name: "Petronas Towers",
+        description: "The tallest twin towers in the world, offering panoramic views of Kuala Lumpur.",
+        coordinates: [3.1570, 101.7112],
+      },
+      {
+        name: "Langkawi",
+        description: "A tropical paradise known for its beaches and clear waters.",
+        coordinates: [6.3750, 99.7333],
+      },
+    ],
+  },
+  {
+    name: "Singapore",
+    emoji: "🇸🇬",
+    culture: "Singaporean culture",
+    lat: 1.3521,
+    lon: 103.8198,
+    touristSpots: [
+      {
+        name: "Marina Bay Sands",
+        description: "An iconic hotel and entertainment complex with a rooftop infinity pool.",
+        coordinates: [1.2839, 103.8607],
+      },
+      {
+        name: "Gardens by the Bay",
+        description: "A futuristic park featuring the iconic Supertree Grove and Flower Dome.",
+        coordinates: [1.2816, 103.8636],
+      },
+    ],
+  },
+  {
+    name: "Philippines",
+    emoji: "🇵🇭",
+    culture: "Filipino culture",
+    lat: 12.8797,
+    lon: 121.7740,
+    touristSpots: [
+      {
+        name: "Palawan",
+        description: "An island paradise known for its limestone cliffs, beaches, and lagoons.",
+        coordinates: [9.8373, 118.7383],
+      },
+      {
+        name: "Chocolate Hills",
+        description: "A geological formation of over 1,000 cone-shaped hills, covered in grass that turns brown in the dry season.",
+        coordinates: [9.6494, 124.0950],
+      },
+    ],
+  },
+  // Add more countries here...
+];
+
 class Explore extends Component {
   state = {
     lat: 0,
@@ -225,24 +1020,28 @@ class Explore extends Component {
     return (
       <div className="map-container">
         <MapContainer center={[this.state.lat, this.state.lng]} zoom={this.state.zoom} className="custom-map">
-          <TileLayer
-            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-            {countriesData.map((country, index) => (
-              <Marker
-                key={index}
-                position={[country.lat, country.lng]}
-                icon={new L.DivIcon({
-                  className: 'custom-marker',
-                  html: country.emoji,
-                  iconSize: [32, 32],
-                  iconAnchor: [16, 32],
-                })}
-              >
-                <Popup>{country.name}<br />{country.culture}</Popup>
-              </Marker>
-            ))}
+        <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" 
+        />
+        <MinimapControl position="topright" />
+        {countriesData.map((country, index) => (
+          <Marker
+            key={index}
+            position={[country.lat, country.lng]}
+            icon={new L.DivIcon({
+              className: 'custom-marker',
+              html: country.emoji,
+              iconSize: [32, 32],
+              iconAnchor: [16, 32],
+            })}
+          >
+            <Popup>
+              <strong style={{ marginTop: "10px" }}>{country.name} {country.emoji}</strong>
+              Culture: {country.culture}
+            </Popup>
+          </Marker>
+        ))}
         </MapContainer>
       </div>
     );
