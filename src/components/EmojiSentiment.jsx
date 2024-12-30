@@ -33,6 +33,7 @@ const EmojiSentiment = () => {
   const [socket, setSocket] = useState(null);
   const [inputText, setInputText] = useState('');
   const [emojiCount, setEmojiCount] = useState(0);
+  const [tones, setTones] = useState([]);
   const [analysisResult, setAnalysisResult] = useState(null);
 
   useEffect(() => {
@@ -59,8 +60,10 @@ const EmojiSentiment = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    socket.emit('analyze_text', { text: inputText });
-    setInputText('');
+    if (socket) {
+      socket.emit('analyze_text', { text: inputText });
+      setInputText('');
+    }
   };
 
   return (
@@ -78,12 +81,14 @@ const EmojiSentiment = () => {
       <button style={styles.button} type="submit">Analyze</button>
       </form>
       {analysisResult && (
-        <div>
-          <h2>Analysis Result</h2>
-          <p>Emoji Count: {emojiCount} | Sentiment: {analysisResult.bert_sentiment} (Score: {analysisResult.bert_score})</p>
-          <p></p>
-          <SentimentChart tones={analysisResult.emoji_sentiment.tones} />
-        </div>
+        <>
+          <p>Emoji Count: {emojiCount} | Sentiment: {analysisResult.overall_sentiment} | Score: {analysisResult.bert_score}</p>
+          {analysisResult.emoji_sentiment && analysisResult.emoji_sentiment.tones ? (
+            <SentimentChart tones={analysisResult.emoji_sentiment.tones} />
+          ) : (
+            <p>No emoji sentiment data available.</p>
+          )}
+        </>
       )}
     </div>
   );

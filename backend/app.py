@@ -1,14 +1,14 @@
 from flask import Flask, request, jsonify, send_file
 from flask_socketio import SocketIO, emit
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from transformers import pipeline
 from flask_cors import CORS
 
-import os
 import re
 import io
-from datetime import datetime
-from werkzeug.utils import secure_filename
+from datetime import datetime, timezone
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
@@ -17,13 +17,15 @@ CORS(app)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Connect with my PgAdmin4 database that is already created 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Tyson19goku@localhost/emojilator'  
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Tyson19goku@localhost:5432/emojilator'  
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 # Load the sentiment analysis pipeline (using a lightweight model)
 sentiment_analyzer = pipeline("sentiment-analysis", model="distilbert-base-uncased", device=-1)
+vader_sentiment_analyzer = SentimentIntensityAnalyzer()
 
 # Emoji sentiment map
 emoji_sentiment_map = {
@@ -125,7 +127,7 @@ emoji_sentiment_map = {
     "🍇🍷": {"tone": "On A Wine and Dine", "score": 4},
     "🐉🔥": {"tone": "Has A Fiery Spirit", "score": 5},
     "🌈🧗‍♀️": {"tone": "Climbing Towards Happiness", "score": 5},
-    "🐾❤️": {"tone": "Pet Love", "score": 5},
+    "🐾❤️": {"tone": "Is Having Pet Love", "score": 5},
     "🚴‍♂️🌳": {"tone": "On A Nature Ride", "score": 4},
 }
 
@@ -134,6 +136,15 @@ def extract_emojis(text):
     emoji_regex = re.compile("[\U00010000-\U0010FFFF]", flags=re.UNICODE)
     return emoji_regex.findall(text)
 
+def analyze_text_sentiment(text):
+    score = vader_sentiment_analyzer.polarity_scores(text)
+    if score['compound'] >= 0.05:
+        return 'positive'
+    elif score['compound'] <= -0.05:
+        return 'negative'
+    else:
+        return 'neutral'
+
 def analyze_emoji_sentiment(emojis):
     emoji_sentiment = {"tones": [], "totalScore": 0}
     for emoji in emojis:
@@ -141,7 +152,6 @@ def analyze_emoji_sentiment(emojis):
             emoji_sentiment["tones"].append(emoji_sentiment_map[emoji]["tone"])
             emoji_sentiment["totalScore"] += emoji_sentiment_map[emoji]["score"]
     return emoji_sentiment
-
 
 # Database connection
 
@@ -211,8 +221,8 @@ class User(db.Model):
         return check_password_hash(self.password, password)
     
     profile_picture = db.Column(db.LargeBinary, nullable=True)
-    created_at = db.Column(db.DateTime, default=datetime.now(datetime.timezone.utc))
-    updated_at = db.Column(db.DateTime, default=datetime.now(datetime.timezone.utc), onupdate=datetime.now(datetime.timezone.utc))
+    created_at = db.Column(db.DateTime, default=datetime.now(timezone.utc))
+    updated_at = db.Column(db.DateTime, default=datetime.now(timezone.utc), onupdate=datetime.now(timezone.utc))
 
     def __repr__(self):
         return f'<User {self.username}>'
@@ -300,12 +310,25 @@ def handle_analyze_text(data):
     emojis = extract_emojis(text)
     emoji_sentiment = analyze_emoji_sentiment(emojis)
 
-    # Send the results back to the client
+    # Analyze text sentiment using VADER
+    text_sentiment = analyze_text_sentiment(text)
+
+    # Combine results
+    if emoji_sentiment["totalScore"] > 0:
+        overall_sentiment = 'positive'
+    elif emoji_sentiment["totalScore"] < 0:
+        overall_sentiment = 'negative'
+    else:
+        overall_sentiment = text_sentiment
+        
     emit('analysis_result', {
         'bert_sentiment': bert_sentiment,
         'bert_score': bert_score,
         'emoji_count': len(emojis),
+        'text_sentiment': text_sentiment,
         'emoji_sentiment': emoji_sentiment,
+        'overall_sentiment': overall_sentiment,
+        # Send the results back to the client
     })
 
 @socketio.on('disconnect')
