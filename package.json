@@ -1,49 +1,84 @@
 {
+  "build": {
+    "appId": "com.emojilator.app",
+    "productName": "Emojilator",
+    "directories": {
+      "output": "release-builds"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "sign": false,
+      "icon": "public/app-icon.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "public/icon.png"
+    }
+  },
   "name": "react-javascript",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
-  "description": "React TypeScript on Replit, using Vite bundler",
-  "main": "electronMain.jsx",
+  "description": "A Fun React App that effortlessly translates your long boring texts into emojis",
   "scripts": {
-    "start": "npm run dev",
-    "dev": "concurrently \"vite\" \"electron .\" \"python backend/app.py\"",
-    "build": "vite build && electron-packager . GameApp --platform=win32 --arch=x64 --overwrite",
-    "preview": "vite preview"
+    "dev": "vite --host",
+    "lint": "eslint .",
+    "build": "vite build",
+    "start": "yarn run dev",
+    "preview": "vite preview",
+    "electron:build": "vite build && cd electron && yarn build",
+    "electron:serve": "concurrently -k \"vite --host 0.0.0.0\" \"wait-on http://192.168.56.1/:5173 && cd electron && yarn start\""
+  },
+  "platforms": {
+    "android": {
+      "package": "com.emojilator.app",
+      "versionCode": 1
+    }
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
     "@vitejs/plugin-react": "^4.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^5.2.2",
+    "typescript": "^5.1.6",
     "vite": "^5.4.11"
   },
   "dependencies": {
+    "@capacitor/android": "^7.1.0",
+    "@capacitor/cli": "^7.1.0",
+    "@capacitor/core": "^7.1.0",
     "@heroui/react": "^2.7.5",
+    "@ionic/cli": "^7.2.1",
+    "@tailwindcss/vite": "^4.0.16",
+    "aos": "^2.3.4",
+    "autoprefixer": "^10.4.21",
     "axios": "^1.7.8",
     "chart.js": "^4.4.7",
     "concurrently": "^9.1.0",
     "downloadjs": "^1.4.7",
-    "electron": "^35.0.2",
-    "electron-packager": "^17.1.2",
     "emoji-regex": "^10.4.0",
     "flask": "^0.2.10",
     "framer-motion": "^12.5.0",
+    "fs": "^0.0.1-security",
     "gif.js": "^0.2.0",
     "html-to-image": "^1.11.11",
     "leaflet": "^1.9.4",
+    "lru-cache": "^11.0.2",
     "nodemon": "^3.1.7",
+    "postcss": "^8.5.3",
     "react-burger-menu": "^3.0.9",
     "react-chartjs-2": "^5.2.0",
     "react-leaflet": "^4.2.1",
-    "react-router-dom": "^6.21.1",
+    "react-router": "^7.4.0",
     "react-spinners": "^0.13.8",
     "sentiment": "^5.0.2",
     "socket.io-client": "^4.8.1",
-    "tailwindcss": ">=3.4.0"
+    "tailwindcss": "^4.0.16",
+    "wait-on": "^8.0.3"
   }
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReverseMap from "./ReverseMap";
+import ReverseMap from "./ReverseMap.jsx";
 
 const ReverseTranslator = () => {
   const [input, setInput] = useState("");

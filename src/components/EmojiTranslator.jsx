@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import emojiMap from './EmojiMap';
+import emojiMap from './EmojiMap.jsx';
 
 const EmojiTranslator = () => {
   const [inputText, setInputText] = useState('');
@@ -144,24 +144,24 @@ const EmojiTranslator = () => {
         <button className="copy-button" onClick={handleCopyClick}>Copy</button>
       </div>
     </div>
-    <div className="sticker-container-wrapper">
-       {translated && (
-         <>
-           {stickerVariations.map((styles, index) => (
-            <img key={index} src={generateStickerAsPng(translated, styles)} className="sticker-container" style={styles} alt={`Sticker ${index + 1}`}>
-            </img>
-           ))}
-           {stickerVariations2.map((styles, index) => (
-            <img key={index} src={generateStickerAsPng(translated, styles, index)} className="sticker-container" style={styles} alt={`Sticker ${index + 1}`}>
-            </img>
-           ))}
-           {stickerVariations3.map((styles, index) => (
-            <img key={index} src={generateStickerAsPng(translated, styles, index)} className="sticker-container" style={styles} alt={`Sticker ${index + 1}`}>
-            </img>
-           ))}
-         </>
-       )}
-    </div>
+    {translated && (
+      <div className="sticker-container-wrapper">
+        <>
+        {stickerVariations.map((styles, index) => (
+         <img key={index} src={generateStickerAsPng(translated, styles)} className="sticker-container" style={styles} alt={`Sticker ${index + 1}`}>
+         </img>
+        ))}
+        {stickerVariations2.map((styles, index) => (
+         <img key={index} src={generateStickerAsPng(translated, styles, index)} className="sticker-container" style={styles} alt={`Sticker ${index + 1}`}>
+         </img>
+        ))}
+        {stickerVariations3.map((styles, index) => (
+         <img key={index} src={generateStickerAsPng(translated, styles, index)} className="sticker-container" style={styles} alt={`Sticker ${index + 1}`}>
+         </img>
+        ))}
+        </>
+      </div>
+    )}
    </>
   );
 };

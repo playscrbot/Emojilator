@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">Emojilator</string>
     <string name="title_activity_main">Emojilator</string>
-    <string name="package_name">com.emojilator.app</string>
-    <string name="custom_url_scheme">com.emojilator.app</string>
+    <string name="package_name">com.Emojilator.app</string>
+    <string name="custom_url_scheme">com.Emojilator.app</string>
 </resources>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import EmojiTranslator from './EmojiTranslator';
-import StyledOutput from './StyledOutput';
-import Explore from './Explore';
-import VirtualTravel from './VirtualTour';
-import Home from './Home';
-import EmojiSentiment from './EmojiSentiment';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router';
+import EmojiTranslator from './EmojiTranslator.jsx';
+import StyledOutput from './StyledOutput.jsx';
+import Explore from './Explore.jsx';
+import VirtualTravel from './VirtualTour.jsx';
+import Home from './Home.jsx';
+import EmojiSentiment from './EmojiSentiment.jsx';
 
 export default function Layout() {
   return (
@@ -27,7 +27,7 @@ export default function Layout() {
             Style Text
             </Link>
           </Menu>
-          <img style={{ left: '5px', maxHeight: '160px', maxWidth: '180px', width: 'auto', height: 'auto', position: 'fixed', top: '1px' }} src="/Logo.png" alt="logo" />
+          <img style={{ left: '5px', maxHeight: '160px', maxWidth: '180px', width: 'auto', height: 'auto', position: 'fixed', top: '1px' }} src="Logo.png" alt="logo" />
         </header>
           <Routes>
             <Route path="/" element={<Home />} />

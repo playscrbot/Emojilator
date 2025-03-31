@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import * as htmlToImage from 'html-to-image';
-import { toPng } from 'html-to-image';
 import download from 'downloadjs';
 import { Card, CardHeader, CardBody, Image } from "@heroui/react";
 
@@ -238,7 +237,7 @@ const StyledOutput = () => {
           <Image
             alt="Card background"
             className="stylish-card-image"
-            src="/cover-card.png"
+            src="cover-card.png"
             width={270}
           />
         </CardBody>

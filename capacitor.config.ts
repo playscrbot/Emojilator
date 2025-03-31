@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.emojilator.app',
+  appId: 'com.Emojilator.app',
   appName: 'Emojilator',
   webDir: 'dist'
 };

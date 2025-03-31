@@ -15,6 +15,56 @@ h2 {
   text-align: center;
 }
 
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.loading-container p {
+  margin-top: 10px;
+}
+
+[data-aos="fade-up"],
+[data-aos="fade-left"],
+[data-aos="fade-right"] {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+[data-aos="fade-up"].aos-animate,
+[data-aos="fade-left"].aos-animate,
+[data-aos="fade-right"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-aos="fade-up"] {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+[data-aos="fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-aos="fade-right"] {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+[data-aos="fade-right"].aos-animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .emoji-translator-container {
   display: flex;
   flex-direction: column;
@@ -251,7 +301,8 @@ div > strong {
   animation: spin 2s linear infinite;
 }
 
-.loading-container {
+/* Sentiment Container */
+.sentiment-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -260,10 +311,28 @@ div > strong {
   text-align: center;
 }
 
-.loading-container p {
-  margin-top: 10px;
+.sentiment-heading {
+  font-size: 30px;
+  margin-bottom: 25px;
 }
 
+.sentiment-textarea {
+  width: 80%;
+  max-width: 750px;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sentiment-button {
+  padding: 15px 45px;
+  font-size: 16px;
+}
+
+/* Burger Menu */
 .bm-burger-button {
   position: fixed;
   width: 30px;
@@ -272,50 +341,39 @@ div > strong {
   top: 25px;
 }
 
-/* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: #373a47;
 }
 
-/* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
   background: #a90000;
 }
 
-/* Position and sizing of clickable cross button */
 .bm-cross-button {
   height: 24px;
   width: 24px;
 }
 
-/* Color/shape of close button cross */
 .bm-cross {
   background: #bdc3c7;
 }
 
-/*
-Sidebar wrapper styles
-Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
-*/
 .bm-menu-wrap {
   position: fixed;
   height: 100%;
 }
 
-/* General sidebar styles */
 .bm-menu {
   background: #373a47;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
 
-/* Wrapper for item list */
 .bm-item-list {
   color: #b8b7ad;
   padding: 0.8em;
 }
 
-/* Individual item */
 .bm-item {
   display: flex;
   align-items: center;
@@ -500,8 +558,163 @@ Note: Beware of modifying this element as it can break the animations - you shou
   margin: 10px;
 }
 
+/* Stylish Card */
+.stylish-card {
+  padding-bottom: 1rem;
+  max-width: 400px;
+}
+
+.stylish-card-header {
+  padding-top: 2.8rem;
+  padding-right: 1rem;
+}
+
+.stylish-h4 {
+  font-family: Poppins;
+  font-size: 1.5rem;
+  padding-bottom: -1rem;
+}
+
+.stylish-card-body {
+  overflow: visible;
+  padding-bottom: 0.1rem;
+}
+
+.stylish-card-image {
+  object-fit: cover;
+  border-radius: 0.75rem;
+  margin-top: -1rem;
+}
+
+/* Superhero Section */
+.superhero-content {
+  padding-top: 3rem;
+  padding-bottom: 0.5rem;
+  padding-top: 4rem;
+  position: relative;
+  text-align: center;
+}
+
+.superhero-header {
+  max-width: 48rem;
+  text-align: center;
+  padding-bottom: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 0.1rem;
+}
+
+.superhero-h1 {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.superhero-p {
+  font-size: 1rem;
+  color: #4caf50;
+  margin-bottom: 2rem;
+  color: #718096;
+  margin-bottom: 2rem;
+}
+
+.superhero-a {
+  display: inline-block;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  max-width: 85%;
+  margin-bottom: 0.75rem;
+}
+
+.bg-purple-600 {
+  background-color: #4caf50;
+}
+
+.hover:bg-purple-700 {
+  background-color: #4caf50;
+}
+
+.superhero-b {
+  display: inline-block;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  width: 85%;
+  margin-bottom: 0.75rem;
+}
+
+.bg-gray-700 {
+  background-color: #4a5568;
+}
+
+.hover:bg-gray-800 {
+  background-color: #2d3748;
+}
+
+.superhero-section {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.sm:w-auto {
+  width: auto;
+}
+
+.tour-card {
+  max-width: auto;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.tour-card-header {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+}
+
+.tour-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.tour-card-body {
+  padding: 20px;
+}
+
+.tour-card-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.tour-btn-primary {
+  background-color: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* Misc Section */
 .max-w-6xl {
-  max-width: 1440px; /* Adjust max-width as needed */
+  max-width: 1440px;
 }
 
 .mx-auto {
@@ -543,7 +756,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Section header */
 .max-w-3xl {
-  max-width: 768px; /* Adjust max-width as needed */
+  max-width: 768px;
 }
 
 .text-center {
@@ -587,11 +800,11 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .text-green-600 {
-  color: #38a169; /* Adjust color as needed */
+  color: #38a169;
 }
 
 .bg-green-200 {
-  background-color: #c6f6d5; /* Adjust background color as needed */
+  background-color: #c6f6d5;
 }
 
 .mb-4 {
@@ -599,40 +812,19 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .h2 {
-  font-size: 1.5rem; /* Adjust font size as needed */
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
 .text-xl {
-  font-size: 1.25rem; /* Adjust font size as needed */
+  font-size: 1.25rem;
 }
 
 .text-gray-400 {
-  color: #718096; /* Adjust color as needed */
+  color: #718096;
 }
 
-[data-aos="fade-up"] {
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-[data-aos="fade-up"].aos-animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-[data-aos="fade-right"] {
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  opacity: 0;
-  transform: translateX(20px);
-}
-
-[data-aos="fade-right"].aos-animate {
-  opacity: 1;
-  transform: translateX(0);
-}
-
+/* Grid container */
 .md\:grid {
   @media (min-width: 768px) {
     display: grid;
@@ -646,12 +838,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .md\:gap-6 {
-  gap: 1.5rem; /* Adjust gap size as needed */
+  gap: 1.5rem;
 }
 
 /* Image container */
 .max-w-xl {
-  max-width: 36rem; /* Adjust max-width as needed */
+  max-width: 36rem;
 }
 
 .md\:max-w-none {
@@ -704,21 +896,7 @@ img.h-auto {
   height: auto;
 }
 
-[data-aos="fade-up"],
-[data-aos="fade-left"],
-[data-aos="fade-right"] {
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-[data-aos="fade-up"].aos-animate,
-[data-aos="fade-left"].aos-animate,
-[data-aos="fade-right"].aos-animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+/* Content styles */
 .items-center {
   max-width: 3xl;
   margin: auto;
@@ -777,156 +955,4 @@ img.h-auto {
   height: 18px;
   fill: #38a169;
   margin-right: 8px;
-}
-
-.stylish-card {
-  padding-bottom: 1rem;
-  max-width: 400px;
-}
-
-.stylish-card-header {
-  padding-top: 2.8rem;
-  padding-right: 1rem;
-}
-
-.stylish-h4 {
-  font-family: Poppins;
-  font-size: 1.5rem;
-  padding-bottom: -1rem;
-}
-
-.stylish-card-body {
-  overflow: visible;
-  padding-bottom: 0.1rem;
-}
-
-.stylish-card-image {
-  object-fit: cover;
-  border-radius: 0.75rem;
-  margin-top: -1rem;
-}
-
-.superhero-content {
-  padding-top: 3rem;
-  padding-bottom: 0.5rem;
-  padding-top: 4rem;
-  position: relative;
-  text-align: center;
-}
-
-.superhero-header {
-  max-width: 48rem;
-  text-align: center;
-  padding-bottom: 3rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 0.1rem;
-}
-
-.superhero-h1 {
-  font-size: 2.25rem;
-  margin-bottom: 1rem;
-}
-
-.superhero-p {
-  font-size: 1rem;
-  color: #4caf50; /* Adjust color as needed */
-  margin-bottom: 2rem;
-  color: #718096;
-  margin-bottom: 2rem;
-}
-
-.superhero-a {
-  display: inline-block;
-  text-align: center;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-  max-width: 85%;
-  margin-bottom: 0.75rem;
-}
-
-.bg-purple-600 {
-  background-color: #4caf50; /* Adjust color as needed */
-}
-
-.hover\:bg-purple-700:hover {
-  background-color: #4caf50; /* Adjust color as needed */
-}
-
-.superhero-b {
-  display: inline-block;
-  text-align: center;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-  width: 85%;
-  margin-bottom: 0.75rem;
-}
-
-.bg-gray-700 {
-  background-color: #4a5568; /* Adjust color as needed */
-}
-
-.hover\:bg-gray-800:hover {
-  background-color: #2d3748; /* Adjust color as needed */
-}
-
-.superhero-section {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.w-full {
-  width: 100%;
-}
-
-.sm:w-auto {
-  width: auto;
-}
-
-.tour-card {
-  max-width: auto;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-.tour-card-header {
-  background-color: #4caf50;
-  color: #fff;
-  padding: 10px;
-}
-
-.tour-card-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  margin-bottom: 0.2rem;
-}
-
-.tour-card-body {
-  padding: 20px;
-}
-
-.tour-card-text {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 20px;
-}
-
-.tour-btn-primary {
-  background-color: #4caf50;
-  color: #fff;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  display: inline-block;
-  margin-bottom: 10px;
 }

@@ -1,6 +1,6 @@
   <h1>Emojilator - From Me to You</h1>
 
-  <a href="https://youtube.com/@playscript"><img src="public/banner-card.png" /></a>
+  <a href="https://youtube.com/@playscript"><img src="./public/banner-card.png" /></a>
 
   ## Overview
 
@@ -23,7 +23,7 @@ Whether you prefer typing or speaking, this app caters to your needs!
   
   ## How to Use
 
-  <a href="https://youtube.com/@playscript"><img src="public/cover-card.png" /></a>
+  <a href="https://youtube.com/@playscript"><img src="./public/cover-card.png" /></a>
   
   
   **Step 1:** Enter your text in the provided textarea.

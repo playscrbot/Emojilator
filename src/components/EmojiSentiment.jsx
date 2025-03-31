@@ -1,11 +1,15 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import React, { useState, useEffect } from 'react';
+import EmojiSentimentMap from './EmojiSentimentMap.jsx';
+import React, { useState } from 'react';
 import { Pie } from 'react-chartjs-2';
-import { io } from 'socket.io-client';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const SentimentChart = ({ tones }) => {
+  if (!tones || tones.length === 0) {
+    return null;
+  };
+
   const toneCounts = tones.reduce((acc, tone) => {
     acc[tone] = (acc[tone] || 0) + 1;
     return acc;
@@ -30,101 +34,52 @@ const SentimentChart = ({ tones }) => {
 };
 
 const EmojiSentiment = () => {
-  const [socket, setSocket] = useState(null);
   const [inputText, setInputText] = useState('');
   const [emojiCount, setEmojiCount] = useState(0);
-  const [tones, setTones] = useState([]);
-  const [analysisResult, setAnalysisResult] = useState(null);
+  const [analysisResult, setAnalysisResult] = useState({ tones: [], overall: "Neutral" });
 
-  useEffect(() => {
-    const newSocket = io('http://localhost:3001');
-    setSocket(newSocket);
+  const analyzeSentiment = (text) => {
+    const emojis = text.match(/[\p{Extended_Pictographic}]/gu) || []; // Extract emojis
+    const tones = emojis.map((emoji) => EmojiSentimentMap[emoji]?.tone || "Neutral");
 
-    newSocket.on('connect', () => {
-      console.log(`Connected to server with id: ${newSocket.id}`);
-    });
+    // Count occurrences of each sentiment type
+    const sentimentCounts = tones.reduce((acc, tone) => {
+      acc[tone] = (acc[tone] || 0) + 1;
+      return acc;
+    }, {});
 
-    newSocket.on('connection_status', (data) => {
-      console.log(data.status); // Should log 'connected'
-    });
-
-    newSocket.on('analysis_result', (data) => {
-      setAnalysisResult(data);
-      setEmojiCount(data.emoji_count);
-    });
-
-    return () => {
-      newSocket.disconnect();
-    };
-  }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (socket) {
-      socket.emit('analyze_text', { text: inputText });
-      setInputText('');
+    // Determine overall sentiment
+    let overallSentiment = "Neutral";
+    if ((sentimentCounts.Positive || 0) > (sentimentCounts.Negative || 0)) {
+      overallSentiment = "Positive";
+    } else if ((sentimentCounts.Negative || 0) > (sentimentCounts.Positive || 0)) {
+      overallSentiment = "Negative";
     }
+
+    setAnalysisResult({ overall: overallSentiment, tones: tones });
+    setEmojiCount(emojis.length);
   };
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.heading}>Sentiment Analysis</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="sentiment-container">
+      <h2 className="sentiment-heading">Sentiment Analysis</h2>
       <textarea
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
         rows="6"
         cols="50"
         placeholder="Type a sentence with emojis..."
-        style={styles.textarea}
+        className="sentiment-textarea"
       />
-      <button style={styles.button} type="submit">Analyze</button>
-      </form>
-      {analysisResult && (
+      <button onClick={() => analyzeSentiment(inputText)}>Analyze</button>
+      {analysisResult.tones.length > 0 && (
         <>
-          <p>Emoji Count: {emojiCount} | Sentiment: {analysisResult.overall_sentiment} | Score: {analysisResult.bert_score}</p>
-          {analysisResult.emoji_sentiment && analysisResult.emoji_sentiment.tones ? (
-            <SentimentChart tones={analysisResult.emoji_sentiment.tones} />
-          ) : (
-            <p>No emoji sentiment data available.</p>
-          )}
+          <p>Emoji Count: {emojiCount} | Sentiment: {analysisResult.overall}</p>
+          <SentimentChart tones={analysisResult.tones} />
         </>
       )}
     </div>
   );
-};
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh',
-    textAlign: 'center',
-  },
-  heading: {
-    marginBottom: '25px',
-    fontSize: '30px',
-  },
-  textarea: {
-    marginBottom: '20px',
-    padding: '10px',
-    width: '80%',
-    maxWidth: '750px',
-    fontSize: '16px',
-    border: '1px solid #ccc',
-    borderRadius: '4px',
-    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
-  },
-  button: {
-    padding: '15px 45px',
-    fontSize: '16px'
-  },
-  result: {
-    marginBottom: '20px',
-    fontSize: '18px',
-  },
 };
 
 export default EmojiSentiment;
