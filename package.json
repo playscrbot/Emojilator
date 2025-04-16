@@ -28,9 +28,7 @@
     "lint": "eslint .",
     "build": "vite build",
     "start": "yarn run dev",
-    "preview": "vite preview",
-    "electron:build": "vite build && cd electron && yarn build",
-    "electron:serve": "concurrently -k \"vite --host 0.0.0.0\" \"wait-on localhost:5173 && cd electron && yarn start\""
+    "preview": "vite preview"
   },
   "platforms": {
     "android": {
