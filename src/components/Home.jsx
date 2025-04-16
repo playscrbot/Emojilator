@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 import Timeline from './Timeline';
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
-import { emojiConfetti } from './emojiConfetti.jsx';
+import { emojiConfetti } from './EmojiConfetti.jsx';
 import { Bar, Pie, Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement, PointElement, LineElement } from 'chart.js';
 
