@@ -2,6 +2,7 @@ import React, { Component, useCallback, useMemo, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvent, Rectangle } from 'react-leaflet';
 import L from 'leaflet';
 import './Leaflet.css';
+import { Link } from 'react-router';
 
 L.Icon.Default.imagePath = '/leaflet/';
 
@@ -313,6 +314,9 @@ class Explore extends Component {
           </Marker>
         ))}
         </MapContainer>
+        <Link to="/" className="menu-item">
+          Home
+        </Link>
       </div>
     );
   }

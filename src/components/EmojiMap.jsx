@@ -1,4 +1,4 @@
-const emojiMap = {  
+const emojiMap = {
   // Emojis
   hello: "👋",
   how: "🤔",

@@ -34,19 +34,30 @@ const EmojiTranslator = () => {
   };
 
   const handleInputChange = (e) => {
-    const currentInput = e.target.value.toLowerCase();
+    const currentInput = e.target.value;
     setInputText(currentInput);
+  
+    const words = currentInput.toLowerCase().split(' ');
+    const currentWord = words[words.length - 1];
 
-    // Provide suggestions based on the current input
+    if (currentWord === '') {
+      setSuggestions([]);
+      return;
+    }
+  
     const matchingSuggestions = Object.keys(emojiMap).filter((word) =>
-      word.startsWith(currentInput)
+      word.startsWith(currentWord)
     );
     setSuggestions(matchingSuggestions);
-  };
+  };  
 
   const handleSuggestionClick = (suggestion) => {
-    setInputText((prevInput) => prevInput + ' ' + suggestion);
-  };
+    const words = inputText.trim().split(' ');
+    words[words.length - 1] = suggestion;
+    const newText = words.join(' ') + ' ';
+    setInputText(newText);
+    setSuggestions([]);
+  };  
 
   const handleToggleVoiceRecognition = () => {
     if (isVoiceRecognitionActive) {
@@ -109,8 +120,8 @@ const EmojiTranslator = () => {
         onChange={handleInputChange}
         placeholder="Type your text..."
       />
-      {inputText.length > 0 && (
-        <div className="tooltip">
+      {suggestions.length > 0 && (
+        <div className="emojilator-tooltip">
           {suggestions.map((suggestion) => (
             <span key={suggestion} onClick={() => handleSuggestionClick(suggestion)}>
               {suggestion}
@@ -135,33 +146,15 @@ const EmojiTranslator = () => {
         )}
         </button>
       </div>
-      <p>
-        <strong style={{ color: 'green' }}>Suggestion:</strong>
+      <p className="emoji-suggestion-text">
+        <strong className="emoji-suggestion">Suggestion:</strong>
         {' '}Use the "Start Voice" button if you don't want to type your query 😄
       </p>
       <div>
-        <strong>Translated Text:</strong> {outputText}
+        <strong className="translated-text">Translated Text:</strong> {outputText}
         <button className="copy-button" onClick={handleCopyClick}>Copy</button>
       </div>
     </div>
-    {translated && (
-      <div className="sticker-container-wrapper">
-        <>
-        {stickerVariations.map((styles, index) => (
-         <img key={index} src={generateStickerAsPng(translated, styles)} className="sticker-container" style={styles} alt={`Sticker ${index + 1}`}>
-         </img>
-        ))}
-        {stickerVariations2.map((styles, index) => (
-         <img key={index} src={generateStickerAsPng(translated, styles, index)} className="sticker-container" style={styles} alt={`Sticker ${index + 1}`}>
-         </img>
-        ))}
-        {stickerVariations3.map((styles, index) => (
-         <img key={index} src={generateStickerAsPng(translated, styles, index)} className="sticker-container" style={styles} alt={`Sticker ${index + 1}`}>
-         </img>
-        ))}
-        </>
-      </div>
-    )}
    </>
   );
 };

@@ -27,7 +27,7 @@ const SentimentChart = ({ tones }) => {
 
   return (
     <div>
-      <h3>Emoji Sentiment Breakdown</h3>
+      <h3 className="sentiment-heading">Emoji Sentiment Breakdown</h3>
       <Pie data={data} />
     </div>
   );
@@ -74,7 +74,7 @@ const EmojiSentiment = () => {
       <button onClick={() => analyzeSentiment(inputText)}>Analyze</button>
       {analysisResult.tones.length > 0 && (
         <>
-          <p>Emoji Count: {emojiCount} | Sentiment: {analysisResult.overall}</p>
+          <p className="emoji-count">Emoji Count: {emojiCount} | Sentiment: {analysisResult.overall}</p>
           <SentimentChart tones={analysisResult.tones} />
         </>
       )}

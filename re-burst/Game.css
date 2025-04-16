@@ -1,0 +1,30 @@
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+    gap: 5px;
+    margin: 20px auto;
+    margin-top: 60px;
+    width: max-content;
+}
+  
+.game-tile {
+    background: #fff;
+    border-radius: 8px;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+  
+.game-tile:hover {
+    transform: scale(1.1);
+}
+  
+.game-tile.selected {
+    border: 3px solid #f39c12;
+    background-color: #fdf6e3;
+}  

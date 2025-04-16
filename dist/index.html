@@ -3,13 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="./assets/favicon-C49brna2.svg" />
     <title>Emojilator</title>
-    <script type="module" crossorigin src="./assets/index-1uE_Jq55.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-3C_Ve4S9.css">
+    <script type="module" crossorigin src="./assets/index-CC1r-cyT.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-D4p_IORX.css">
   </head>
   <body>
+    <script>
+      // Simple 3D Tilt for Psychology Hub Cards
+      document.querySelectorAll('.psychology-hub-li').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          card.style.setProperty('--rotateX', `${(y - centerY) / -20}deg`);
+          card.style.setProperty('--rotateY', `${(x - centerX) / 20}deg`);
+        });
+        
+        // Reset on mouse leave
+        card.addEventListener('mouseleave', () => {
+          card.style.setProperty('--rotateX', '0deg');
+          card.style.setProperty('--rotateY', '0deg');
+        });
+      });
+    </script>
     <div id="root"></div>
   </body>
 </html>
