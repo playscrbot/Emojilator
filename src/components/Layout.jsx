@@ -55,6 +55,7 @@ export default function Layout() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/srcdoc" element={<Home />} />
+            <Route path="/sitemap.xml" element={<Home />} />
             <Route path="/emoji" element={<EmojiTranslator />} />
             <Route path="/quiz" element={<EmojiQuiz />} />
             <Route path="/tour" element={<VirtualTravel />} />
