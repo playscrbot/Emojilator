@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://playscript.netlify.app/</loc>
+  <lastmod>2025-04-19T13:51:19+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://playscript.netlify.app/blog/</loc>
+  <lastmod>2025-04-19T13:51:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://playscript.netlify.app/about/</loc>
+  <lastmod>2025-04-19T13:51:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://playscript.netlify.app/blog/fourthpost/</loc>
+  <lastmod>2025-04-19T13:51:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://playscript.netlify.app/blog/thirdpost/</loc>
+  <lastmod>2025-04-19T13:51:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://playscript.netlify.app/blog/secondpost/</loc>
+  <lastmod>2025-04-19T13:51:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://playscript.netlify.app/blog/firstpost/</loc>
+  <lastmod>2025-04-19T13:51:19+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://playscript.netlify.app/tags/second-tag/</loc>
+  <lastmod>2025-04-19T13:51:19+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://playscript.netlify.app/tags/posts-with-two-tags/</loc>
+  <lastmod>2025-04-19T13:51:19+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://playscript.netlify.app/tags/number-2/</loc>
+  <lastmod>2025-04-19T13:51:19+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://playscript.netlify.app/tags/another-tag/</loc>
+  <lastmod>2025-04-19T13:51:19+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://playscript.netlify.app/tags/</loc>
+  <lastmod>2025-04-19T13:51:19+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
