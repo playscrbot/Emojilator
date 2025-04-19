@@ -276,7 +276,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-container {
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	font-size: 0.75rem;
+	font-size: 12px;
 	line-height: 1.5;
 	}
 

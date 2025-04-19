@@ -435,51 +435,51 @@ div > strong {
 .emoji-grammar-container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 32px;
   color: #333;
 }
 
 .emoji-grammar-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 40px;
+  margin-bottom: 16px;
 }
 
 .emoji-grammar-intro {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+  font-size: 18px;
+  margin-bottom: 32px;
 }
 
 hr {
-  margin: 1rem 0;
+  margin: 16px 0;
   border: none;
   border-top: 1px solid #ccc;
 }
 
 .fact-card {
   background: #f9f9f9;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  padding: 24px;
+  margin-bottom: 24px;
   border-radius: 8px;
   box-shadow: 0 2px 5px var(--primary-hover);
 }
 
 .fact-card h2 {
   color: #333;
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+  font-size: 20px;
+  margin-bottom: 8px;
 }
 
 .fact-card p {
   color: #333;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 18px;
 }
 
 .emoji-grammar-grid {
   display: flex;
-  gap: 1.5rem;
+  gap: 24px;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: 32px;
 }
 
 .emoji-grammar-stat {
@@ -487,7 +487,7 @@ hr {
   min-width: 280px;
   background: #e0f7fa;
   color: #333;
-  padding: 1rem;
+  padding: 16px;
   border-radius: 6px;
 }
 
@@ -495,17 +495,17 @@ hr {
   color: #333;
   font-weight: bold;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 
 .emoji-grammar-stat strong {
-  font-size: 1.2rem;
+  font-size: 20px;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 
 .emoji-grammar-stat span {
-  font-size: 0.9rem;
+  font-size: 14px;
   color: #555;
 }
 
@@ -522,7 +522,7 @@ hr {
 
 .psychology-hub-section {
   background: radial-gradient(ellipse at center, var(--bg-color) 0%, var(--shadow-light) 100%);
-  padding: 2.5rem 0.5rem;
+  padding: 40px 8px;
   color: var(--text-color);
   text-align: center;
   position: relative;
@@ -547,9 +547,9 @@ hr {
 }
 
 .psychology-hub-h2 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(40px, 5vw, 56px);
   font-weight: 800;
-  margin: 1rem;
+  margin: 16px;
   background: linear-gradient(90deg, #4ade80 0%, #6366f1 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -562,48 +562,48 @@ hr {
 .psychology-hub-h2::after {
   content: "";
   position: absolute;
-  bottom: -0.5rem;
+  bottom: -8px;
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: 4rem;
-  height: 0.25rem;
+  width: 64px;
+  height: 4px;
   background: linear-gradient(90deg, #4ade80 0%, #6366f1 100%);
-  border-radius: 1rem;
+  border-radius: 16px;
   transition: width 0.5s ease;
 }
 
 .psychology-hub-section:hover .psychology-hub-h2::after {
-  width: 3rem;
+  width: 48px;
 }
 
 .psychology-hub-p {
-  font-size: 1.5rem;
+  font-size: 24px;
   color: var(--text-color);
   margin-top: 2px;
 }
 
 .psy-hub-p {
   color: var(--text-color);
-  margin-bottom: -1rem;
+  margin-bottom: -16px;
 }
 
 .psychology-hub-ul {
   list-style: none;
   padding: 0;
-  margin: 3rem auto;
+  margin: 48px auto;
   max-width: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 24px;
 }
 
 .psychology-hub-li {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
-  border-radius: 1.25rem;
-  padding: 2rem;
+  border-radius: 20px;
+  padding: 32px;
   width: 100%;
   max-width: 600px;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
@@ -630,8 +630,8 @@ hr {
 
 .psychology-hub-span {
   display: inline-block;
-  font-size: 2rem;
-  margin: 0 auto 1rem;
+  font-size: 32px;
+  margin: 0 auto 16px;
   position: relative;
   z-index: 1;
   filter: drop-shadow(0 5px 10px rgba(74, 222, 128, 0.3));
@@ -654,7 +654,7 @@ hr {
 
 .psychology-hub-span::after {
   content: "✨";
-  font-size: 1.5rem;
+  font-size: 24px;
   position: absolute;
   top: 0;
   left: 50%;
@@ -715,14 +715,14 @@ hr {
 .emoji-quiz-row {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  gap: 6px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 @media (min-width: 768px) {
   .emoji-quiz-row {
-    gap: 0.7rem;
+    gap: 12px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -730,41 +730,41 @@ hr {
 }
 
 .mb-22 {
-  margin-bottom: -1rem;
+  margin-bottom: -16px;
 }
 
 /* Emoji Test Section */
 .emoji-test-section {
-  margin-top: 1rem;
+  margin-top: 16px;
   text-align: center;
   flex: 1;
   min-width: 0;
   background-color: var(--secondary-color);
   color: black;
-  border-radius: 0.5rem;
-  padding: 0.8rem;
+  border-radius: 8px;
+  padding: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .emoji-test-title {
-  font-size: 1.25rem;
+  font-size: 20px;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 
 .emoji-test-subtitle {
   color: black;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .emoji-test-buttons {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .emoji-button {
-  font-size: 1.875rem;
+  font-size: 30px;
   transition: transform 0.15s ease-in-out;
   transform: translateX(0) translateY(0) rotate(0) skewX(0) skewY(0) scaleX(1) scaleY(1);
 }
@@ -775,11 +775,11 @@ hr {
 
 /* Quiz Card Section */
 .quiz-card {
-  margin-top: 1rem;
+  margin-top: 16px;
   background-color: var(--secondary-color);
   color: black;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
+  border-radius: 8px;
+  padding: 24px;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   text-align: center;
   flex: 1;
@@ -787,23 +787,23 @@ hr {
 }
 
 .quiz-title {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 
 .quiz-description {
   color: black;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .quiz-cta {
   display: inline-block;
-  padding: 0.5rem 1.5rem;
+  padding: 8px 24px;
   background-color: var(--primary-color);
   color: var(--secondary-color);
   font-weight: 700;
-  border-radius: 0.25rem;
+  border-radius: 4px;
   transition: background-color 0.15s ease-in-out;
 }
 
@@ -815,29 +815,29 @@ hr {
 .emoji-stats-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 64px 32px;
   background: linear-gradient(to bottom, #111827, #1f2937);
 }
 
 .stat-heading {
   text-align: center;
-  font-size: 2rem;
+  font-size: 32px;
   font-weight: bold;
   color: #f9fafb;
-  margin-top: -1rem;
-  margin-bottom: 3rem;
+  margin-top: -16px;
+  margin-bottom: 48px;
 }
 
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  gap: 32px;
 }
 
 .stat-card {
   background: linear-gradient(145deg, #3b0764, #6d28d9);
   border-radius: 16px;
-  padding: 1.5rem;
+  padding: 24px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -850,17 +850,17 @@ hr {
 .stat-card-header {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .stat-card-icon {
-  font-size: 2rem;
-  margin-right: 0.75rem;
+  font-size: 32px;
+  margin-right: 10.5px;
   color: #fde68a;
 }
 
 .stat-card-title {
-  font-size: 1.25rem;
+  font-size: 20px;
   color: #ffffff;
   font-weight: 600;
 }
@@ -868,81 +868,80 @@ hr {
 .stat-card-body {
   background-color: #ffffff;
   border-radius: 12px;
-  padding: 1rem;
+  padding: 16px;
 }
 
 /* Behind The Scenes */
-
 .emoji-behind-the-scenes {
   max-width: 900px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 64px 32px;
 }
 
 .emoji-behind-the-scenes h2 {
-  font-size: 2.5rem;
+  font-size: 40px;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
   color: var(--text-color);
 }
 
 .emoji-behind-the-scenes p {
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 18px;
   max-width: 700px;
-  margin: 0 auto 3rem auto;
-  color: var(--text-color)
+  margin: 0 auto 48px auto;
+  color: var(--text-color);
 }
 
 .emoji-creation-timeline {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 40px;
 }
 
 .timeline-step {
   display: flex;
   align-items: flex-start;
-  gap: 1.2rem;
+  gap: 20px;
   background: #f9fafb;
-  padding: 1.5rem;
+  padding: 24px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .emoji-creation-icon {
-  font-size: 2rem;
+  font-size: 32px;
   flex-shrink: 0;
-  width: 3rem;
-  height: 3rem;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .emoji-creation-content h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.3rem;
+  font-size: 20px;
+  margin-bottom: 5px;
   color: #111827;
 }
 
 .emoji-creation-content p {
   margin: 0;
-  font-size: 1rem;
+  font-size: 16px;
   color: #374151;
 }
 
 .emoji-creation-cta h3 {
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
   color: #6b21a8;
-  font-size: 1.5rem;
+  font-size: 24px;
 }
 
 .emoji-creation-cta-button {
   display: inline-block;
   background: #9333ea;
   color: white;
-  padding: 0.8rem 1.6rem;
+  padding: 12px 25px;
   border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
@@ -961,29 +960,29 @@ hr {
   }
 
   .emoji-creation-icon {
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
   }
 }
 
 .emoji-culture-section {
-  padding: 4rem 2rem;
+  padding: 64px 32px;
   max-width: 1100px;
   margin: auto;
 }
 
 .emoji-culture-section h2 {
-  font-size: 2.4rem;
+  font-size: 40px;
   text-align: center;
-  margin-top: -1rem;
-  margin-bottom: 1rem;
+  margin-top: -16px;
+  margin-bottom: 16px;
   color: var(--text-color);
 }
 
 .emoji-culture-subtext {
   text-align: center;
   color: var(--text-color);
-  font-size: 1.1rem;
-  margin-bottom: 3rem;
+  font-size: 18px;
+  margin-bottom: 48px;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -992,13 +991,13 @@ hr {
 .emoji-culture-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
+  gap: 32px;
 }
 
 .emoji-culture-card {
   background: linear-gradient(135deg, #fafafa, #f0f4f8);
   border-radius: 20px;
-  padding: 2rem 1.5rem;
+  padding: 32px 24px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.25s ease;
 }
@@ -1008,69 +1007,69 @@ hr {
 }
 
 .emoji-culture-icon {
-  font-size: 2.8rem;
+  font-size: 44.8px;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .emoji-culture-meaning {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .emoji-culture-block h4 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 17.6px;
   color: #374151;
 }
 
 .emoji-culture-block p {
-  margin: 0.2rem 0 0;
+  margin: 3.2px 0 0;
   color: #6b7280;
-  font-size: 0.95rem;
+  font-size: 15.2px;
 }
 
 @media (max-width: 600px) {
   .emoji-culture-meaning {
-    gap: 0.8rem;
+    gap: 12.8px;
   }
 }
 
 .emoji-social-section {
-  padding: 4rem 2rem;
+  padding: 64px 32px;
   max-width: 1100px;
   margin: auto;
   text-align: center;
 }
 
 .emoji-social-section h2 {
-  font-size: 2.3rem;
+  font-size: 36.8px;
   color: var(--text-color);
-  margin-top: -1.5rem;
-  margin-bottom: 1rem;
+  margin-top: -24px;
+  margin-bottom: 16px;
 }
 
 .emoji-social-subtext {
   color: var(--text-color);
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+  font-size: 17.6px;
+  margin-bottom: 32px;
   max-width: 700px;
   margin: auto;
 }
 
 .emoji-social-impact-grid {
   display: grid;
-  gap: 2rem;
+  gap: 32px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
+  margin-top: 32px;
+  margin-bottom: 8px;
 }
 
 .emoji-social-impact-card {
   background: #f9fafb;
   border-radius: 16px;
-  padding: 1.8rem 1.5rem;
+  padding: 28.8px 24px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   text-align: left;
   position: relative;
@@ -1082,19 +1081,19 @@ hr {
 }
 
 .emoji-social-impact-icon {
-  font-size: 2.5rem;
-  margin-bottom: 0.8rem;
+  font-size: 40px;
+  margin-bottom: 12.8px;
 }
 
 blockquote {
-  font-size: 1rem;
+  font-size: 16px;
   color: #1f2937;
   font-style: italic;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 8px 0;
 }
 
 .emoji-social-author {
-  font-size: 0.9rem;
+  font-size: 14.4px;
   color: #6b7280;
 }
 
@@ -1106,31 +1105,31 @@ blockquote {
   justify-content: center;
   text-align: center;
   background-color: var(--secondary-color);
-  border-radius: 0.5rem;
+  border-radius: 8px;
   margin-top: 20px;
-  padding: 2rem;
+  padding: 32px;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 .museum-card-header {
-  font-size: 2.5rem;
+  font-size: 40px;
   font-weight: 700;
-  margin-bottom: 0.35rem;
+  margin-bottom: 5.6px;
 }
 
 .museum-card-text {
   color: black;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+  font-size: 17.6px;
+  margin-bottom: 16px;
 }
 
 .museum-btn-primary {
   display: inline-block;
-  padding: 0.5rem 1.5rem;
+  padding: 8px 24px;
   background-color: var(--primary-color);
   color: var(--text-color);
   font-weight: 700;
-  border-radius: 0.25rem;
+  border-radius: 4px;
   transition: background-color 0.15s ease-in-out;
 }
 
@@ -1141,11 +1140,11 @@ blockquote {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .psychology-hub-li {
-    padding: 1.5rem;
+    padding: 24px;
   }
   
   .psychology-hub-span {
-    font-size: 1.75rem;
+    font-size: 28px;
   }
 }
 
@@ -1295,21 +1294,21 @@ label {
 
 .year {
   color: var(--primary-color);
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .description {
-  font-size: 1rem;
+  font-size: 16px;
   margin-bottom: 15px;
   text-align: center;
   color: var(--text-color);
 }
 
 .emojis {
-  font-size: 1.8rem;
+  font-size: 28.8px;
   text-align: center;
 }
 
@@ -1407,7 +1406,7 @@ label {
   display: grid;
   max-width: 900px;
   max-height: 100vh;
-  gap: 2rem;
+  gap: 32px;
   margin-top: 10px;
 }
 
@@ -1422,30 +1421,30 @@ label {
 
 /* Stylish Card */
 .stylish-card {
-  padding-bottom: 1rem;
+  padding-bottom: 16px;
   max-width: 400px;
 }
 
 .stylish-card-header {
-  padding-top: 2.8rem;
-  padding-right: 1rem;
+  padding-top: 44.8px;
+  padding-right: 16px;
 }
 
 .stylish-h4 {
   font-family: var(--font-family);
-  font-size: 1.5rem;
-  padding-bottom: -1rem;
+  font-size: 24px;
+  padding-bottom: -16px;
 }
 
 .stylish-card-body {
   overflow: visible;
-  padding-bottom: 0.1rem;
+  padding-bottom: 1.6px;
 }
 
 .stylish-card-image {
   object-fit: cover;
-  border-radius: 0.75rem;
-  margin-top: -1rem;
+  border-radius: 12px;
+  margin-top: -16px;
 }
 
 .stylish-textarea {
@@ -1462,7 +1461,7 @@ label {
 
 .preview-label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
   font-weight: bold;
   color: var(--text-color);
 }
@@ -1511,46 +1510,46 @@ label {
 
 /* Superhero Section */
 .superhero-content {
-  padding-top: 3rem;
-  padding-bottom: 0.5rem;
-  padding-top: 4rem;
+  padding-top: 48px;
+  padding-bottom: 8px;
+  padding-top: 64px;
   position: relative;
   text-align: center;
 }
 
 .superhero-header {
-  max-width: 48rem;
+  max-width: 768px;
   text-align: center;
-  padding-bottom: 3rem;
+  padding-bottom: 48px;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 0.1rem;
+  padding-bottom: 1.6px;
 }
 
 .superhero-h1 {
-  font-size: 2.25rem;
-  margin-bottom: 1rem;
+  font-size: 36px;
+  margin-bottom: 16px;
 }
 
 .superhero-p {
-  font-size: 1rem;
+  font-size: 16px;
   color: #4caf50;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
   color: #718096;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 }
 
 .superhero-a {
   display: inline-block;
   text-align: center;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  padding: 12px 24px;
+  font-size: 16px;
   font-weight: bold;
   color: #fff;
   text-decoration: none;
   cursor: pointer;
   max-width: 85%;
-  margin-bottom: 0.75rem;
+  margin-bottom: 12px;
 }
 
 .bg-purple-600 {
@@ -1564,14 +1563,14 @@ label {
 .superhero-b {
   display: inline-block;
   text-align: center;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  padding: 12px 24px;
+  font-size: 16px;
   font-weight: bold;
   color: #fff;
   text-decoration: none;
   cursor: pointer;
   width: 85%;
-  margin-bottom: 0.75rem;
+  margin-bottom: 12px;
 }
 
 .bg-gray-700 {
@@ -1609,11 +1608,11 @@ label {
 
 .tour-card-title {
   color: var(--text-color);
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: bold;
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  margin-bottom: 0.2rem;
+  margin-top: 8px;
+  padding: 8px;
+  margin-bottom: 3.2px;
 }
 
 .tour-card-body {
@@ -1621,7 +1620,7 @@ label {
 }
 
 .tour-card-text {
-  font-size: 1rem;
+  font-size: 16px;
   color: var(--text-color);
   margin-bottom: 20px;
 }
@@ -1638,7 +1637,7 @@ label {
   perspective: 1000px;
   width: 250px;
   height: 300px;
-  margin: 1rem;
+  margin: 16px;
 }
 
 .emoji-card {
@@ -1658,7 +1657,7 @@ label {
   background: #111;
   color: white;
   border-radius: 12px;
-  padding: 1rem;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1675,20 +1674,20 @@ label {
 }
 
 .emoji-anim {
-  font-size: 2rem;
-  margin: 0.3rem;
+  font-size: 32px;
+  margin: 4.8px;
 }
 
 .museum-room {
   background: var(--bg-color);
-  padding: 2rem;
+  padding: 32px;
   min-height: 100vh;
   color: var(--text-color);
   font-family: var(--font-family);
 }
 
 .museum-title {
-  font-size: 2rem;
+  font-size: 32px;
   text-align: center;
   color: var(--text-color);
   text-shadow: 0 0 8px var(--secondary-color);
@@ -1696,14 +1695,14 @@ label {
 
 @media (max-width: 768px) {
   .museum-title {
-    font-size: 2.5rem;
+    font-size: 40px;
   }
 }
 
 .museum-intro {
   text-align: center;
-  font-size: 1rem;
-  margin-bottom: 3rem;
+  font-size: 16px;
+  margin-bottom: 48px;
   color: var(--text-color);
 }
 
@@ -1711,14 +1710,14 @@ label {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 32px;
 }
 
 .room-card {
   background: white;
   border-radius: 12px;
   width: 300px;
-  padding: 1rem;
+  padding: 16px;
   position: relative;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1739,7 +1738,7 @@ label {
   margin: 0 auto;
   border-radius: 50%;
   background: var(--bg-color);
-  padding: 0.5rem;
+  padding: 8px;
 }
 
 .spotlight-glow {
@@ -1762,18 +1761,18 @@ label {
 
 .room-details {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 16px;
 }
 
 .room-details h3 {
   color: var(--text-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 
 .room-details p {
-  font-size: 0.9rem;
+  font-size: 14.4px;
   color: var(--text-color);
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .guide-info-section {
@@ -1785,13 +1784,13 @@ label {
 }
 
 .guide-title {
-  font-size: 2.5rem;
+  font-size: 40px;
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
 .guide-intro {
-  font-size: 1rem;
+  font-size: 16px;
   color: var(--text-color);
   margin-bottom: 30px;
 }
@@ -1827,7 +1826,7 @@ label {
 }
 
 .guide-name {
-  font-size: 1.2rem;
+  font-size: 19.2px;
   color: var(--bg-color);
   margin-bottom: -5px;
 }
@@ -1838,19 +1837,19 @@ label {
 }
 
 .guide-description {
-  font-size: 0.7rem;
+  font-size: 11.2px;
   color: var(--bg-color);
 }
 
 .guide-scenes {
-  font-size: 0.75rem;
+  font-size: 12px;
   color: var(--bg-color);
   margin-top: 10px;
 }
 
 .under-construction-section {
-  margin-top: 1rem;
-  padding: 2rem;
+  margin-top: 16px;
+  padding: 32px;
   background-color: var(--bg-color);
   color: var(--text-color);
   border: 2px dashed #f2c94c;
@@ -1859,20 +1858,20 @@ label {
 }
 
 .construction-title {
-  font-size: 1.8rem;
+  font-size: 28.8px;
   color: #d97706;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 
 .construction-intro {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
+  font-size: 16px;
+  margin-bottom: 24px;
 }
 
 .construction-rooms {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 24px;
   align-items: center;
 }
 
@@ -1880,7 +1879,7 @@ label {
   background: var(--bg-color);
   color: var(--text-color);
   border: 1px solid #facc15;
-  padding: 1rem 1.5rem;
+  padding: 16px 24px;
   border-radius: 8px;
   width: 90%;
   max-width: 600px;
@@ -1889,12 +1888,12 @@ label {
 }
 
 .construction-card h3 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
   color: #b45309;
 }
 
 .construction-card p {
-  font-size: 0.95rem;
+  font-size: 15.2px;
 }
 
 .vr-home {
@@ -1922,7 +1921,7 @@ label {
 .vr-p {
   color: white;
   margin-top: -5px;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 /* Grid animation for VR movement */
@@ -1932,8 +1931,8 @@ label {
 }
 
 .enter-btn {
-  padding: 1.2rem 2rem;
-  font-size: 1.5rem;
+  padding: 19.2px 32px;
+  font-size: 24px;
   border: none;
   border-radius: 12px;
   background: linear-gradient(45deg, #ff00cc, #3333ff);
@@ -1953,18 +1952,18 @@ label {
 
 .orb {
   position: relative;
-  font-size: 2rem;
+  font-size: 32px;
   cursor: pointer;
 }
 
 .tooltip {
   position: absolute;
-  top: -2rem;
+  top: -32px;
   background: var(--primary-color);
   color: var(--text-color);
-  padding: 0.2rem 0.5rem;
+  padding: 3.2px 8px;
   border-radius: 4px;
-  font-size: 0.8rem;
+  font-size: 12.8px;
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -1976,36 +1975,36 @@ label {
 @media (max-width: 768px) {
   .data-panels {
     display: flex;
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 24px;
+    margin-top: 32px;
   }
   
   .data-card {
     background: #0a0e17;
     color: white;
-    padding: 1rem 3rem;
+    padding: 16px 48px;
     border-radius: 8px;
     backdrop-filter: blur(6px);
   }
 
   .vr-p {
-    font-size: 0.8rem;
+    font-size: 12.8px;
   }
 }
 
 .data-panels {
   display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: 8px;
+  margin-top: 16px;
 }
 
 .data-card {
   background: #0a0e17;
   color: white;
-  padding: 0.3rem 1rem;
+  padding: 4.8px 16px;
   border-radius: 4px;
   backdrop-filter: blur(6px);
-  font-size: 0.8rem;
+  font-size: 12.8px;
 }
 
 .data-value {
@@ -2015,8 +2014,8 @@ label {
 .timeline-carousel {
   display: flex;
   overflow-x: auto;
-  padding: 2rem;
-  gap: 2rem;
+  padding: 32px;
+  gap: 32px;
   perspective: 1000px;
 }
 
@@ -2044,8 +2043,8 @@ label {
 }
 
 .museum-directory {
-  margin-top: 1rem;
-  padding: 2.5rem;
+  margin-top: 16px;
+  padding: 40px;
   text-align: center;
   background-color: var(--bg-color);
   border-radius: 16px;
@@ -2053,28 +2052,28 @@ label {
 }
 
 .directory-title {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 32px;
+  margin-bottom: 8px;
   color: var(--text-color);
 }
 
 .directory-subtext {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
+  font-size: 16px;
+  margin-bottom: 24px;
   color: var(--text-color);
 }
 
 .directory-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  gap: 16px;
 }
 
 .directory-room {
   background-color: var(--bg-color);
   border: 2px dashed #ccc;
   border-radius: 12px;
-  padding: 1.25rem;
+  padding: 20px;
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
@@ -2089,14 +2088,14 @@ label {
 }
 
 .room-icon {
-  font-size: 2rem;
+  font-size: 32px;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 
 .room-label {
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 17.6px;
 }
 
 .you-are-here {
@@ -2108,12 +2107,12 @@ label {
   font-weight: bold;
   padding: 2px 8px;
   border-radius: 20px;
-  font-size: 0.5rem;
+  font-size: 8px;
   box-shadow: 0 0 8px var(--primary-hover);
 }
 
 .artifact-wall {
-  padding: 2rem;
+  padding: 32px;
   margin-top: 75px;
   background: var(--primary-color);
   color: var(--text-color);
@@ -2122,8 +2121,8 @@ label {
 }
 
 .artifact-title {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 32px;
+  margin-bottom: 32px;
   text-align: center;
   color: var(--secondary-color);
 }
@@ -2133,7 +2132,7 @@ label {
   flex-direction: column;
   align-items: center;
   background: var(--bg-color);
-  padding: 2rem;
+  padding: 32px;
   border-radius: 15px;
   box-shadow: 0 0 30px rgba(4, 4, 4, 0.2);
   max-width: 700px;
@@ -2141,7 +2140,7 @@ label {
 }
 
 .artifact-h3 {
-  font-size: 1.5rem;
+  font-size: 24px;
   margin-top: -5px;
 }
 
@@ -2156,13 +2155,13 @@ label {
   display: inline-block;
   background: radial-gradient(circle, var(--primary-color) 30%, transparent 70%);
   border-radius: 50%;
-  padding: 1.5rem;
-  font-size: 5rem;
+  padding: 24px;
+  font-size: 80px;
 }
 
 .artifact-info {
-  margin-top: -0.5rem;
-  font-size: 1.1rem;
+  margin-top: -8px;
+  font-size: 17.6px;
   line-height: 1.6;
   text-align: left;
 }
@@ -2185,32 +2184,32 @@ label {
 
 /* Unicode Lab */
 .unicode-lab {
-  padding: 5rem 2rem;
+  padding: 80px 32px;
   background: linear-gradient(145deg, #0a0f18, #101826);
   color: #e0f0ff;
 }
 
 .unicode-lab-header {
   text-align: center;
-  padding-bottom: 4rem;
+  padding-bottom: 64px;
 }
 
 .unicode-lab-header h1 {
-  font-size: 2.8rem;
+  font-size: 44.8px;
   color: #93d6ff;
   text-shadow: 0 0 12px #3498ff;
 }
 
 .unicode-lab-header p {
-  font-size: 1.2rem;
+  font-size: 19.2px;
   max-width: 700px;
   margin: 0 auto;
   color: #c4d7f2;
 }
 
 .emoji-scanner-container {
-  margin-top: -1.5rem;
-  padding: 1rem;
+  margin-top: -24px;
+  padding: 16px;
   background: #242a34;
   color: #f5f5f5;
   border-radius: 12px;
@@ -2222,14 +2221,14 @@ label {
 }
 
 .emoji-scanner-form input {
-  font-size: 1.2rem;
-  padding: 0.5rem;
+  font-size: 19.2px;
+  padding: 8px;
   width: 60px;
   text-align: center;
 }
 
 .emoji-scanner-window {
-  margin-top: 1.5rem;
+  margin-top: 24px;
   min-height: 120px;
   position: relative;
 }
@@ -2243,8 +2242,8 @@ label {
 }
 
 .emoji-scanner-slide {
-  font-size: 3rem;
-  padding: 0.5rem 1rem;
+  font-size: 48px;
+  padding: 8px 16px;
   border-radius: 50%;
   position: relative;
   animation: scannerPulse 2s infinite ease-in-out;
@@ -2285,7 +2284,7 @@ label {
 .result-mood-meter {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 16px;
 }
 
 .result-mood-meter .bar {
@@ -2336,23 +2335,23 @@ label {
 
 .scan-result-profile {
   background: #2d3748;
-  padding: 1rem;
+  padding: 16px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .scan-result-big {
-  font-size: 3.5rem;
+  font-size: 56px;
 }
 
 .scan-result-tagline {
-  margin-top: 0.5rem;
+  margin-top: 8px;
   font-style: italic;
   color: #f9f9f9;
 }
 
 .scan-result-tag {
-  margin-top: 0.2rem;
+  margin-top: 3.2px;
   font-style: italic;
   color: #f9f9f9;
 }
@@ -2364,9 +2363,9 @@ label {
 
 .rejected-drawer {
   background: #1b1e2b;
-  padding: 2rem;
+  padding: 32px;
   border-radius: 20px;
-  margin-top: 3rem;
+  margin-top: 48px;
   text-align: center;
   box-shadow: 0 0 20px rgba(255, 100, 100, 0.1);
 }
@@ -2377,18 +2376,18 @@ label {
 
 .rejected-drawer p {
   color: #ccc;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .drawer-toggle {
   background: #ff5e5e;
   color: #fff;
-  padding: 0.7rem 1.4rem;
-  font-size: 1rem;
+  padding: 11.2px 22.4px;
+  font-size: 16px;
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
   transition: all 0.2s ease-in-out;
 }
 
@@ -2399,7 +2398,7 @@ label {
 
 .rejected-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 24px;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
@@ -2407,7 +2406,7 @@ label {
   background: #2b2f3f;
   border: 2px solid #ff7e7e33;
   border-radius: 15px;
-  padding: 1rem;
+  padding: 16px;
   color: #f8dada;
   text-align: center;
   transition: 0.3s;
@@ -2419,24 +2418,24 @@ label {
 }
 
 .rejected-emoji {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 40px;
+  margin-bottom: 8px;
 }
 
 .rejection-reason {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
+  font-size: 15.2px;
+  margin-bottom: 16px;
 }
 
 .reanalyze-btn {
   background: #ff9f9f;
   color: #1b1e2b;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 8px 16px;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 14.4px;
 }
 
 .reanalyze-btn:hover {
@@ -2453,7 +2452,7 @@ label {
 }
 
 .lab-glitch-text {
-  font-size: 3rem;
+  font-size: 48px;
   color: #ff5555;
   margin-top: -2px;
   animation: flickerGlow 2s infinite;
@@ -2470,7 +2469,7 @@ label {
 }
 
 .lab-hazard-warning {
-  font-size: 1.5rem;
+  font-size: 24px;
   color: #ffcc00;
   margin-bottom: 20px;
   animation: labShake 0.5s infinite alternate;
@@ -2483,7 +2482,7 @@ label {
 }
 
 .lab-tape {
-  font-size: 1.2rem;
+  font-size: 19.2px;
   background: repeating-linear-gradient(
     45deg,
     #000,
@@ -2504,7 +2503,7 @@ label {
 
 .lab-coming-soon-text {
   margin-top: 20px;
-  font-size: 0.7rem;
+  font-size: 11.2px;
   color: #fff;
 }
 
@@ -2537,30 +2536,30 @@ label {
 .emojipedia-room {
   background: radial-gradient(circle at center, var(--bg-color) 0%, var(--bg-color) 100%);
   color: var(--text-color);
-  padding: 2.5rem;
+  padding: 40px;
   min-height: 100vh;
   font-family: var(--font-family);
 }
 
 .emojipedia-title {
-  font-size: 2.5rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  font-size: 40px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   color: var(--text-color);
 }
 
 .emojipedia-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 32px;
+  margin-top: 32px;
 }
 
 .emojipedia-card {
   background: var(--secondary-color);
   box-shadow: var(--text-color);
   border-radius: 10px;
-  padding: 1rem;
+  padding: 16px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s, box-shadow 0.3s;
@@ -2573,16 +2572,16 @@ label {
 }
 
 .emojipedia-icon {
-  font-size: 4rem;
-  margin-bottom: 0.5rem;
+  font-size: 64px;
+  margin-bottom: 8px;
 }
 
 .emojipedia-input {
   background: var(--secondary-color);
   color: var(--text-color);
   border: 1px solid var(--text-color);
-  padding: 0.5rem;
-  font-size: 1.2rem;
+  padding: 8px;
+  font-size: 19.2px;
   border-radius: 8px;
   outline: none;
 }
@@ -2591,7 +2590,7 @@ label {
   background: var(--primary-color);
   color: var(--secondary-color);
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 8px 16px;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s, color 0.3s;
@@ -2604,7 +2603,7 @@ label {
   backface-visibility: hidden;
   top: 0;
   left: 0;
-  padding: 1rem;
+  padding: 16px;
   box-sizing: border-box;
   border-radius: 10px;
 }
@@ -2640,8 +2639,8 @@ label {
 }
 
 .detail-section {
-  margin: 1rem 0;
-  padding-bottom: 0.5rem;
+  margin: 16px 0;
+  padding-bottom: 8px;
   border-bottom: 1px dashed var(--text-color);
 }
 
@@ -2650,25 +2649,25 @@ label {
 }
 
 .similar-emojis {
-  font-size: 0.95rem;
-  line-height: 1.2rem;
+  font-size: 15.2px;
+  line-height: 19.2px;
 }
 
 .flip-hint {
   text-align: center;
-  margin-top: 0.5rem;
+  margin-top: 8px;
   color: rgba(0, 255, 200, 0.7);
-  font-size: 0.9rem;
+  font-size: 14.4px;
 }
 
 .common-uses-list {
-  padding-left: 1.2rem;
-  margin: 0.5rem 0;
+  padding-left: 19.2px;
+  margin: 8px 0;
 }
 
 .common-use {
-  font-size: 0.95rem;
-  margin-bottom: 0.3rem;
+  font-size: 15.2px;
+  margin-bottom: 4.8px;
 }
 
 .section-positive {
@@ -2687,16 +2686,16 @@ label {
 .experiment-zone {
   background: linear-gradient(145deg, #0f0f0f, #1c1c1c);
   color: #00ffee;
-  padding: 2rem;
+  padding: 32px;
   min-height: 100vh;
   font-family: var(--font-family);
 }
 
 .zone-title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 40px;
   color: #0ff;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
   text-shadow: 0 0 10px #0ff;
 }
 
@@ -2704,15 +2703,15 @@ label {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 16px;
+  margin-bottom: 32px;
 }
 
 .tab-button {
   background: #111;
   border: 2px solid #00ffee;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  padding: 12px 24px;
+  font-size: 16px;
   color: #00ffee;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -2730,7 +2729,7 @@ label {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid #00ffee55;
   border-radius: 10px;
-  padding: 2rem;
+  padding: 32px;
   min-height: 300px;
   box-shadow: 0 0 20px #0ff3;
 }
@@ -2738,35 +2737,35 @@ label {
 .emoji-decoder {
   max-width: 400px;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 24px;
   text-align: center;
   border-radius: 12px;
   box-shadow: 0 0 12px rgba(0,0,0,0.1);
 }
 
 .emoji-display {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 32px;
+  margin-bottom: 16px;
 }
 
 .emoji-decode-input {
-  padding: 1rem;
+  padding: 16px;
   width: 80%;
-  font-size: 1rem;
-  margin-right: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 16px;
+  margin-right: 40px;
+  margin-bottom: 8px;
   border: 2px solid #ccc;
   border-radius: 6px;
 }
 
 .emoji-decoder button {
-  padding: 0.5rem 1rem;
+  padding: 8px 16px;
   background: #111;
   border: 2px solid #00ffee;
   color: white;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: 0.5rem;
+  margin-top: 8px;
 }
 
 .emoji-decoder button:hover,
@@ -2777,8 +2776,8 @@ label {
 }
 
 .emoji-status {
-  font-size: 1.2rem;
-  margin-top: 1rem;
+  font-size: 19.2px;
+  margin-top: 16px;
   transition: all 0.3s ease;
   color: white;
 }
@@ -2788,7 +2787,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 0.5rem;
+  margin-top: 8px;
   height: 0;
   width: 100%;
   pointer-events: none;
@@ -2798,7 +2797,7 @@ label {
 .emoji-fly {
   position: absolute;
   animation: fly 1s ease-out forwards;
-  font-size: 2.5rem;
+  font-size: 40px;
 }
 
 @keyframes fly {
@@ -2814,15 +2813,15 @@ label {
 
 @media (max-width: 480px) {
   .emoji-display {
-    font-size: 2rem;
+    font-size: 32px;
   }
 
   .decode-input {
-    font-size: 1rem;
+    font-size: 16px;
   }
 
   .emoji-fly {
-    font-size: 1.2rem;
+    font-size: 19.2px;
   }
 }
 
@@ -2844,15 +2843,15 @@ label {
 
 .emoji-input {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  padding: 0.3rem 0.7rem;
-  font-size: 1.5rem;
+  top: 16px;
+  left: 16px;
+  padding: 4.8px 11.2px;
+  font-size: 24px;
 }
 
 .emoji-clone {
   position: absolute;
-  font-size: 2.5rem;
+  font-size: 40px;
   animation: bounce 1.2s infinite ease-in-out;
 }
 
@@ -2867,12 +2866,12 @@ label {
   }
   
   .emoji-input {
-    font-size: 1rem;
-    padding: 0.2rem 0.4rem;
+    font-size: 16px;
+    padding: 3.2px 6.4px;
   }
 
   .emoji-clone {
-    font-size: 2rem;
+    font-size: 32px;
   }
 }
 
@@ -2903,13 +2902,13 @@ label {
 }
 
 .emoji-story-actions button {
-  padding: 0.5rem 1rem;
+  padding: 8px 16px;
   background: #111;
   border: 2px solid #00ffee;
   color: white;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: 0.5rem;
+  margin-top: 8px;
 }
 
 .emoji-story-actions button:hover
@@ -2934,12 +2933,12 @@ label {
 
 .mood-randomizer {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 32px;
 }
 
 .mood-output {
-  font-size: 5rem;
-  margin-top: 1rem;
+  font-size: 80px;
+  margin-top: 16px;
   animation: pop 0.4s ease-out;
 }
 
@@ -2951,7 +2950,7 @@ label {
 /* Recipe Cooker */
 .emoji-chef {
   text-align: center;
-  padding: 1rem;
+  padding: 16px;
   min-height: 100vh;
 }
 
@@ -2962,14 +2961,14 @@ label {
 .ingredient-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.6rem;
-  margin: 1rem auto;
-  padding: 0.5rem;
+  gap: 9.6px;
+  margin: 16px auto;
+  padding: 8px;
   touch-action: manipulation; /* Kill 300ms delay */
 }
 
 .ingredient-grid button {
-  font-size: clamp(2rem, 6vw, 3rem); /* Fluid scaling */
+  font-size: clamp(32px, 6vw, 48px); /* Fluid scaling */
   background: white;
   border: 2px dashed #00ffe0;
   border-radius: 12px;
@@ -2987,9 +2986,9 @@ label {
 
 .cooking-pot {
   background: white;
-  padding: 1.5rem;
+  padding: 24px;
   border-radius: 16px;
-  margin: 1.2rem auto;
+  margin: 19.2px auto;
   max-width: min(95%, 700px);
   border: 3px solid #00f6ff;
   box-shadow: 0 4px 8px rgba(255, 170, 0, 0.1);
@@ -3003,13 +3002,13 @@ label {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.8rem;
-  margin: 1.2rem 0;
-  min-height: 4rem;
+  gap: 12.8px;
+  margin: 19.2px 0;
+  min-height: 64px;
 }
 
 .cooking-selected-items span {
-  font-size: 2rem;
+  font-size: 32px;
   animation: ingredientPop-in 0.3s ease;
 }
 
@@ -3020,10 +3019,10 @@ label {
 }
 
 .cooking-dish {
-  font-size: clamp(3rem, 10vw, 4rem);
+  font-size: clamp(48px, 10vw, 64px);
   display: inline-block;
   animation: cookingPotBounce 0.6s ease-out potFadeIn 0.4s;
-  margin: 0.5rem 0;
+  margin: 8px 0;
 }
 
 @keyframes cookingPotBounce {
@@ -3053,15 +3052,15 @@ label {
 }
 
 .cooking-status {
-  font-size: 1.5rem;
+  font-size: 24px;
   color: #ff6600;
-  margin: 1rem 0;
+  margin: 16px 0;
 }
 
 .cooking-status::after {
   content: "🔥";
   display: inline-block;
-  margin-left: 0.5rem;
+  margin-left: 8px;
   animation: sizzle 0.8s infinite alternate;
 }
 
@@ -3090,20 +3089,20 @@ label {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.2rem;
-  margin-top: 0.5rem;
+  gap: 3.2px;
+  margin-top: 8px;
 }
 
 .cook-buttons button {
   background: #ffaa00;
   color: white;
   border: none;
-  padding: 0.7rem 1rem;
+  padding: 11.2px 16px;
   border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
-  font-size: 1rem;
+  font-size: 16px;
   flex: 1 1 auto;
   min-width: 120px;
 }
@@ -3147,22 +3146,22 @@ label {
 .emoji-theatre {
   background: #000;
   color: #fff;
-  padding: 2rem;
+  padding: 32px;
   text-align: center;
 }
 
 .emoji-theatre-toolbar {
   background: #111;
-  padding: 1rem;
+  padding: 16px;
   border: 2px dashed #444;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 24px;
 }
 
 .emoji-draggable {
-  font-size: 2rem;
+  font-size: 32px;
   cursor: grab;
   transition: transform 0.2s ease;
 }
@@ -3181,7 +3180,7 @@ label {
 }
 
 .emoji-on-stage {
-  font-size: 2.5rem;
+  font-size: 40px;
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -3349,7 +3348,7 @@ label {
 .emoji-selfie-booth {
   text-align: center;
   background: var(--bg-color);
-  padding: 2rem;
+  padding: 32px;
   border-radius: 12px;
 }
 
@@ -3358,8 +3357,8 @@ label {
 }
 
 .bg-selector button {
-  margin: 0.25rem;
-  margin-bottom: 2rem;
+  margin: 4px;
+  margin-bottom: 32px;
 }
 
 .booth-frame-selector {
@@ -3367,7 +3366,7 @@ label {
 }
 
 .emoji-props-panel {
-  margin: 1rem 0;
+  margin: 16px 0;
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -3375,7 +3374,7 @@ label {
 }
 
 .emoji-props-panel .draggable {
-  font-size: 2rem;
+  font-size: 32px;
   position: absolute;
   cursor: grab;
   user-select: none;
@@ -3383,24 +3382,24 @@ label {
 }
 
 .selfie-booth-input {
-  margin: 1rem;
+  margin: 16px;
 }
 
 .selfie-booth-input input {
-  padding: 0.5rem;
-  font-size: 1.2rem;
+  padding: 8px;
+  font-size: 19.2px;
   width: 200px;
 }
 
 .selfie-booth-input button {
   margin-left: 10px;
-  padding: 0.5rem;
-  font-size: 1rem;
+  padding: 8px;
+  font-size: 16px;
 }
 
 .snapshot-preview img {
   filter: var(--selected-filter);
-  margin-top: 1rem;
+  margin-top: 16px;
   max-width: 100%;
 }
 
@@ -3409,7 +3408,7 @@ label {
 }
 
 .frame-polaroid {
-  padding: 1rem;
+  padding: 16px;
   background: white;
   border: 1px solid #ccc;
 }
@@ -3417,13 +3416,13 @@ label {
 /* Secret Vault */
 .secret-vault-room {
   color: #0f0;
-  padding: 2rem;
+  padding: 32px;
 }
 
 .vault-inner {
   border: 2px dashed #0f0;
-  padding: 1rem;
-  margin-top: 2rem;
+  padding: 16px;
+  margin-top: 32px;
   animation: glowBox 4s infinite alternate;
 }
 
@@ -3450,7 +3449,7 @@ label {
 }
 
 .door-handle {
-  font-size: 4rem;
+  font-size: 64px;
   text-align: center;
   padding-top: 110px;
 }
@@ -3464,8 +3463,8 @@ label {
 .vault-cutscene {
   background: #000;
   color: lime;
-  padding: 2rem;
-  font-size: 1.2rem;
+  padding: 32px;
+  font-size: 19.2px;
   text-align: center;
   margin-top: 250px;
   animation: vaultFlicker 0.2s infinite alternate;
@@ -3480,10 +3479,10 @@ label {
   background: black;
   color: lime;
   border: 2px solid lime;
-  padding: 0.5rem;
-  font-size: 1rem;
+  padding: 8px;
+  font-size: 16px;
   outline: none;
-  margin-right: 1rem;
+  margin-right: 16px;
 }
 
 .vault-passcode-input::placeholder {
@@ -3491,18 +3490,18 @@ label {
 }
 
 .vault-terminal {
-  margin-top: 1rem;
+  margin-top: 16px;
 }
 
 .success-msg, .error-msg {
-  margin-top: 1rem;
+  margin-top: 16px;
   font-weight: bold;
 }
 
 .vault-reveal {
-  margin-top: 2rem;
+  margin-top: 32px;
   background: rgba(0, 255, 0, 0.1);
-  padding: 1rem;
+  padding: 16px;
   border: 1px solid #0f0;
   animation: pulseGlow 2s infinite alternate;
   text-align: center;
@@ -3514,7 +3513,7 @@ label {
 }
 
 .code-hint {
-  margin-top: 0.5rem;
+  margin-top: 8px;
   font-style: italic;
   color: #0f0;
 }
@@ -3523,7 +3522,7 @@ label {
 .mood-playground {
   background: radial-gradient(ellipse at center, var(--bg-color) 0%, var(--bg-color) 100%);
   color: var(--text-color);
-  padding: 2rem;  
+  padding: 32px;  
   text-align: center;
   min-height: 100vh;
   position: relative;
@@ -3535,7 +3534,7 @@ label {
 }
 
 .glow-title {
-  font-size: 2.8rem;
+  font-size: 44.8px;
   color: var(--text-color);
   text-shadow: 0 0 10px #ffd700, 0 0 20px #ffaa00;
 }
@@ -3548,16 +3547,16 @@ label {
 .game-tabs {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .game-tabs button {
   background: #333;
   color: #fff;
   border: none;
-  margin: 0 1rem;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
+  margin: 0 16px;
+  padding: 12.8px 24px;
+  font-size: 16px;
   cursor: pointer;
   border-radius: 8px;
   transition: 0.3s;
@@ -3571,13 +3570,13 @@ label {
 
 .game-scoreboard {
   text-align: center;
-  margin-top: 0.5rem;
-  font-size: 1.1rem;
+  margin-top: 8px;
+  font-size: 17.6px;
 }
 
 .game-area {
-  margin-top: 1rem;
-  padding: 1.5rem;
+  margin-top: 16px;
+  padding: 24px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
@@ -3586,15 +3585,15 @@ label {
 /* Emoji Match */
 .emoji-match-container {
   text-align: center;
-  padding: 1rem;
+  padding: 16px;
   margin-top: -20px;
 }
 
 .emoji-match-question {
-  font-size: 1.5rem;
-  margin: 1rem 0;
+  font-size: 24px;
+  margin: 16px 0;
   background: rgba(255, 255, 255, 0.1);
-  padding: 0.8rem;
+  padding: 12.8px;
   border-radius: 12px;
   display: inline-block;
 }
@@ -3602,19 +3601,19 @@ label {
 .emoji-match-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
+  gap: 8px;
   max-width: 400px;
   margin: 0 auto;
   margin-top: -20px;
 }
 
 .emoji-match-button {
-  font-size: 2rem;
+  font-size: 32px;
   background: var(--primary-color);
   border: 2px solid transparent;
   border-radius: 12px;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 8px;
   transition: all 0.2s;
 }
 
@@ -3628,7 +3627,7 @@ label {
 }
 
 .match-game-start-button {
-  margin-top: 2rem;
+  margin-top: 32px;
 }
 
 .match-game-start-button:hover {
@@ -3675,14 +3674,14 @@ label {
 .emoji-puzzle-wall {
   max-width: 600px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 16px;
 }
 
 .puzzle-drop-row {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
-  margin: 2rem 0;
+  gap: 8px;
+  margin: 32px 0;
 }
 
 .puzzle-drop-zone {
@@ -3694,7 +3693,7 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
+  font-size: 28.8px;
 }
 
 .puzzle-drop-zone.filled {
@@ -3706,8 +3705,8 @@ label {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: 8px;
+  margin-top: 16px;
 }
 
 .puzzle-tile {
@@ -3718,7 +3717,7 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
+  font-size: 28.8px;
   cursor: grab;
   transition: 0.2s;
 }
@@ -3733,14 +3732,14 @@ label {
 }
 
 .puzzle-timer {
-  font-size: 1.2rem;
+  font-size: 19.2px;
   color: #ff5555;
-  margin: 1rem 0;
+  margin: 16px 0;
 }
 
 .puzzle-result-msg {
-  font-size: 1.3rem;
-  margin-top: 1.5rem;
+  font-size: 20.8px;
+  margin-top: 24px;
   animation: puzzleFadeIn 0.5s;
 }
 
@@ -3753,27 +3752,27 @@ label {
 .emoji-mood-mapper {
   max-width: 500px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 16px;
 }
 
 .mood-prompt {
-  font-size: 1.3rem;
-  margin: 1.5rem 0;
+  font-size: 20.8px;
+  margin: 24px 0;
   background: var(--bg-color);
-  padding: 1rem;
+  padding: 16px;
   border-radius: 12px;
 }
 
 .emoji-mood-options {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 16px;
   flex-wrap: wrap;
-  margin: 2rem 0;
+  margin: 32px 0;
 }
 
 .emoji-mood-btn {
-  font-size: 2rem;
+  font-size: 32px;
   background: var(--primary-color);
   border: none;
   width: 70px;
@@ -3793,19 +3792,19 @@ label {
 }
 
 .emoji-mood-feedback {
-  font-size: 1.2rem;
-  margin: 1rem 0;
-  min-height: 2rem;
+  font-size: 19.2px;
+  margin: 16px 0;
+  min-height: 32px;
 }
 
 .scrolling-lore {
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 0.7rem;
+  padding: 10px;
   background: var(--primary-hover);
   color: var(--text-color);
-  font-size: 0.9rem;
+  font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
   animation: scroll-lore 30s linear infinite;
@@ -3820,10 +3819,10 @@ label {
   background: #ff9800;
   color: white;
   display: inline-block;
-  margin: 0.2rem;
-  padding: 0.4rem 0.8rem;
+  margin: 4px;
+  padding: 8px 16px;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: 14px;
   box-shadow: 0 0 10px #ff9800;
   animation: popBadge 0.3s ease-in;
 }
@@ -3845,7 +3844,7 @@ label {
 }
 
 .professor-avatar {
-  font-size: 2.8rem;
+  font-size: 44.8px;
   animation: proFloat 2.4s ease-in-out infinite;
 }
 
@@ -3895,7 +3894,7 @@ label {
 }
 
 .ampurr-avatar {
-  font-size: 3rem;
+  font-size: 48px;
   animation: ampurrPulse 1s infinite alternate ease-in-out;
   cursor: pointer;
 }
@@ -3944,7 +3943,7 @@ label {
 }
 
 .pixelia-avatar {
-  font-size: 2.8rem;
+  font-size: 44.8px;
   animation: pixel-blink 1.2s infinite steps(2);
 }
 
@@ -3993,7 +3992,7 @@ label {
 }
 
 .seijiro-avatar {
-  font-size: 2.6rem;
+  font-size: 41.6px;
   animation: seijiro-blink 2s infinite ease-in-out;
 }
 
@@ -4045,7 +4044,7 @@ label {
 }
 
 .agent-avatar {
-  font-size: 2.4rem;
+  font-size: 38.4px;
   animation: blink-slow 3s infinite;
   cursor: pointer;
 }
@@ -4177,8 +4176,8 @@ label {
 .settings-feedback-section {
   background: radial-gradient(circle, #ff9a9e, #fad0c4);
   border-radius: 12px;
-  padding: 5rem;
-  margin-top: 2rem;
+  padding: 80px;
+  margin-top: 32px;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -4186,13 +4185,13 @@ label {
 }
 
 .settings-feedback-section h3 {
-  font-size: 1.8rem;
+  font-size: 28.8px;
   text-align: center;
   color: #ff007f;
 }
 
 .settings-feedback-section p {
-  font-size: 1rem;
+  font-size: 16px;
   text-align: center;
 }
 
@@ -4200,12 +4199,12 @@ label {
   width: 90%;
   max-width: 500px;
   display: block;
-  margin: 1rem auto;
-  padding: 1rem;
+  margin: 16px auto;
+  padding: 16px;
   border: 2px dashed #ff69b4;
   border-radius: 10px;
   background: #fffafc;
-  font-size: 1rem;
+  font-size: 16px;
   color: #333;
   resize: vertical;
   box-shadow: 0 0 10px rgba(255, 192, 203, 0.3);
@@ -4213,23 +4212,23 @@ label {
 
 @media (max-width: 480px) {
   .settings-feedback-textarea {
-    font-size: 0.95rem;
-    padding: 0.8rem;
+    font-size: 15.2px;
+    padding: 12.8px;
   }
 }
 
 .feedback-buttons {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 16px;
 }
 
 .send-feedback-btn {
   background: linear-gradient(to right, #ff6ec4, #7873f5);
   color: white;
-  padding: 0.7rem 1.5rem;
+  padding: 11.2px 24px;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
@@ -4242,9 +4241,9 @@ label {
 }
 
 .coming-soon-section {
-  margin-top: 2rem;
+  margin-top: 32px;
   background: #ff9a9e;
-  padding: 1.5rem;
+  padding: 24px;
   border-radius: 12px;
   border: 2px dotted #f06292;
 }
@@ -4252,29 +4251,29 @@ label {
 .coming-soon-section h3 {
   text-align: center;
   color: #d81b60;
-  font-size: 1.6rem;
+  font-size: 25.6px;
 }
 
 .coming-soon-section ul {
   list-style-type: none;
   padding-left: 0;
-  margin-top: 1rem;
+  margin-top: 16px;
 }
 
 .coming-soon-section li {
-  margin-bottom: 0.8rem;
-  font-size: 1.1rem;
+  margin-bottom: 12.8px;
+  font-size: 17.6px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .closing-line {
-  margin-top: 1.5rem;
+  margin-top: 24px;
   text-align: center;
   font-weight: bold;
   color: #ff4081;
-  font-size: 1.1rem;
+  font-size: 17.6px;
 }
 
 /* Misc Section */
@@ -4288,26 +4287,26 @@ label {
 }
 
 .px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .sm\:px-6 {
   @media (min-width: 640px) {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 
 .py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 
 .md\:py-20 {
   @media (min-width: 768px) {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 }
 
@@ -4329,12 +4328,12 @@ label {
 }
 
 .pb-12 {
-  padding-bottom: 3rem;
+  padding-bottom: 48px;
 }
 
 .md\:pb-16 {
   @media (min-width: 768px) {
-    padding-bottom: 4rem;
+    padding-bottom: 64px;
   }
 }
 
@@ -4343,7 +4342,7 @@ label {
 }
 
 .text-sm {
-  font-size: 0.875rem;
+  font-size: 14px;
 }
 
 .font-semibold {
@@ -4351,17 +4350,17 @@ label {
 }
 
 .py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 .px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .m-2 {
-  margin: 0.5rem;
+  margin: 8px;
 }
 
 .text-green-600 {
@@ -4373,20 +4372,20 @@ label {
 }
 
 .mb-4 {
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 24px;
+  margin-bottom: 16px;
 }
 
 .text-xl {
-  font-size: 1.25rem;
+  font-size: 20px;
 }
 
 .text-2xl {
-  font-size: 1.5rem;
+  font-size: 24px;
 }
 
 .text-gray-400 {
@@ -4411,12 +4410,12 @@ label {
 }
 
 .md\:gap-6 {
-  gap: 1.5rem;
+  gap: 24px;
 }
 
 /* Image container */
 .max-w-xl {
-  max-width: 36rem;
+  max-width: 576px;
 }
 
 .md\:max-w-none {
@@ -4445,7 +4444,7 @@ label {
 }
 
 .mb-8 {
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 }
 
 .md\:mb-0 {
@@ -4477,45 +4476,45 @@ img.h-auto {
 
 .items-center .md\:pr-4 {
   @media (min-width: 768px) {
-    padding-right: 1rem;
+    padding-right: 16px;
   }
 }
 
 .items-center .lg\:pr-12 {
   @media (min-width: 1024px) {
-    padding-right: 3rem;
+    padding-right: 48px;
   }
 }
 
 .items-center .xl\:pr-16 {
   @media (min-width: 1280px) {
-    padding-right: 4rem;
+    padding-right: 64px;
   }
 }
 
 .font-architects-daughter {
   margin-top: 35px;
   font-family: var(--font-family);
-  font-size: 1rem;
+  font-size: 16px;
   color: var(--primary-color);
 }
 
 
 .h3-mb-3 {
-  font-size: 1.875rem;
+  font-size: 30px;
   margin-top: 15px;
   margin-bottom: 2px;
   color: var(--text-color);
 }
 
 .items-center p {
-  font-size: 1rem;
+  font-size: 16px;
   color: #718096; /* Adjust color as needed */
   margin-bottom: 2px;
 }
 
 .items-content ul {
-  font-size: 1rem;
+  font-size: 16px;
   color: #718096; /* Adjust color as needed */
   margin-bottom: -2px;
 }

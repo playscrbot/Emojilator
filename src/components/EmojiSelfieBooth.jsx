@@ -214,7 +214,7 @@ export default function EmojiSelfieBooth() {
           position: 'relative',
           width: '320px',
           height: '240px',
-          margin: '1rem auto',
+          margin: '16px auto',
           backgroundImage: `url(${backgrounds[bgIndex]})`,
           backgroundSize: 'cover',
           filter: selectedFilter,
